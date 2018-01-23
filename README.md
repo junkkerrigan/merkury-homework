@@ -1,1 +1,2 @@
-#Mercury homework for GeekHub
+```Mercury```
+mercury homework for GeekHub

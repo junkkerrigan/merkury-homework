@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 const extractPlugin = new ExtractTextPlugin({
-    filename: './css/app.css'
+    filename: './app.css'
 });
 
 module.exports = {
@@ -12,7 +12,7 @@ module.exports = {
     entry: ["./index.js", './scss/app.scss'],
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: "./components/[name].bundle.js"
+        filename: "./[name].bundle.js"
     },
     devServer: {
         contentBase: path.resolve(__dirname, "dist/media"),
