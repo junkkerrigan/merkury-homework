@@ -17,7 +17,11 @@ class App extends Component {
         return (
             <Router history={browserHistory}>
 
-                <Route path='/' component={Login} />
+                <div>
+
+                    <Route path='/' component={Login} />
+
+                </div>
 
             </Router>
 

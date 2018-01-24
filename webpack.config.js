@@ -19,6 +19,7 @@ module.exports = {
         stats: 'errors-only',
         open: true,
         port: 13000,
+        historyApiFallback: true,
         compress: true
     },
     devtool: 'inline-source-map',

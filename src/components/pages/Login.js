@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 
 import { Link } from 'react-router-dom';
 
-import LoginMain from "../login-page/LoginMain";
+import LoginTab from "../login-page/LoginTab";
 
 import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
 
 import logo from '../../img/entire-logo.png'
+
+import RegisterTab from "../login-page/RegisterTab";
 
 
 class Login extends Component {
@@ -31,11 +33,11 @@ class Login extends Component {
 
     render() {
         return (
-            <div className='login-wrapper'>
+            <div className='sign-wrapper'>
 
-                <section className='login'>
+                <section className='sign'>
 
-                    <header className='login-header'>
+                    <header className='sign-header'>
 
                         <h1 className='logo'>
 
@@ -83,11 +85,13 @@ class Login extends Component {
 
                         <TabPane tabId='register'>
 
+                            <RegisterTab />
+
                         </TabPane>
 
                         <TabPane tabId='login'>
 
-                            <LoginMain/>
+                            <LoginTab />
 
                         </TabPane>
 
