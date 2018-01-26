@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 
 import { Link } from 'react-router-dom';
 
-import LoginTab from "../login-page/LoginTab";
+import LoginTab from "../sign-page/LoginTab";
 
 import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
 
 import logo from '../../img/entire-logo.png'
 
-import RegisterTab from "../login-page/RegisterTab";
+import RegisterTab from "../sign-page/RegisterTab";
 
 
-class Login extends Component {
+class Sign extends Component {
 
     constructor(props) {
         super(props);
@@ -104,4 +104,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default Sign;

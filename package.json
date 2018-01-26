@@ -46,6 +46,7 @@
     "webpack-dev-server": "^2.11.0"
   },
   "devDependencies": {
+    "lodash": "^4.17.4",
     "react-key-index": "^0.1.1",
     "url-loader": "^0.6.2"
   }

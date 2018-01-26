@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 
-import { Router, Route, Link } from 'react-router-dom';
+import { Router, Route, Redirect } from 'react-router-dom';
 
-import Login from "./components/pages/Login";
+import Sign from "./components/pages/Sign";
 
 import { createBrowserHistory } from 'history';
 
 const browserHistory=createBrowserHistory();
+
 
 class App extends Component {
     constructor(props) {
@@ -19,7 +20,12 @@ class App extends Component {
 
                 <div>
 
-                    <Route path='/' component={Login} />
+
+                    <Route exact path='/' component={Sign} />
+
+                    <Route exact path='/home' render={
+                        () => { return <p>pp</p>; }
+                    } />
 
                 </div>
 
