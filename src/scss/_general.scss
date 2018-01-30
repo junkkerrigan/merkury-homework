@@ -1,5 +1,17 @@
 $main-font: Roboto, sans-serif;
+$_blue: #5584ff;
+$_grey: #8492af;
 
 button, a {
   cursor: pointer;
+}
+
+button {
+  border: none;
+  background: transparent;
+
+  &:focus, &:active {
+    outline: none;
+    box-shadow: none!important;
+  }
 }

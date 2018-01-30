@@ -32,7 +32,7 @@
         //transition: .5s;
 
         &.active {
-          border-bottom: 5px solid #5584ff;
+          border-bottom: 5px solid $_blue;
         }
       }
 
@@ -60,7 +60,7 @@
   justify-content: center;
 
   &-title {
-    color: #8492af;
+    color: $_grey;
     font: 300 24px $main-font;
 
     &.login {
@@ -72,7 +72,7 @@
     }
 
     .highlight {
-      color: #5384ff;
+      color: $_blue;
     }
   }
 
@@ -96,7 +96,7 @@
     min-width: 285px;
     padding-left: 35px;
     &::-webkit-input-placeholder {
-      color: #8492af;
+      color: $_grey;
       font: 300 14px $main-font;
     }
   }
@@ -118,14 +118,14 @@
     img, i {
       position: relative;
       left: 20px;
-      color: #5384ff;
+      color: $_blue;
     }
   }
 
 
 
   &-submit {
-    background-color: #5584ff;
+    background-color: $_blue;
     border-radius: 36px;
     padding: 10px 80px;
 

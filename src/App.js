@@ -4,6 +4,10 @@ import { Router, Route, Redirect } from 'react-router-dom';
 
 import Sign from "./components/pages/Sign";
 
+import FixedHeader from "./components/main-layout/FixedHeader";
+
+import FixedSidebar from "./components/main-layout/FixedSidebar";
+
 import { createBrowserHistory } from 'history';
 
 const browserHistory=createBrowserHistory();
@@ -20,12 +24,11 @@ class App extends Component {
 
                 <div>
 
-
                     <Route exact path='/' component={Sign} />
 
-                    <Route exact path='/home' render={
-                        () => { return <p>pp</p>; }
-                    } />
+                    <Route strict path='/:page' component={FixedHeader} />
+
+                    <Route strict path='/:page' component={FixedSidebar} />
 
                 </div>
 

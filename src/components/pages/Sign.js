@@ -87,6 +87,8 @@ class Sign extends Component {
 
                             <RegisterTab />
 
+
+
                         </TabPane>
 
                         <TabPane tabId='login'>

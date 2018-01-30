@@ -27,6 +27,9 @@ class LoginTab extends Component {
             password = event.target.elements[1].value;
 
         if (localStorage.getItem(username + '-password') === password) {
+
+            localStorage.setItem('isUserLogged', 'true');
+            localStorage.setItem('currentUser', username);
             this.setState({
                 isFormSubmitted: 'true'
             });
