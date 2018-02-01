@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 
-import { Form, Input, Button, Label, FormGroup, FormFeedback, FormText } from 'reactstrap';
+import { Form, Input, Button, Label } from 'reactstrap';
 
 import passwordIcon from '../../img/password-icon.png';
 
 import userIcon from '../../img/user-icon.png'
 
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+
+import '../../scss/sign-page/LoginTab.scss';
 
 class LoginTab extends Component {
 

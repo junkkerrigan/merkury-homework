@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { Router, Route, Redirect } from 'react-router-dom';
 
+import './scss/app.scss';
+
 import Sign from "./components/pages/Sign";
 
 import FixedHeader from "./components/main-layout/FixedHeader";
@@ -29,6 +31,8 @@ class App extends Component {
                     <Route strict path='/:page' component={FixedHeader} />
 
                     <Route strict path='/:page' component={FixedSidebar} />
+
+                    <Route path='' />
 
                 </div>
 

@@ -1,91 +1,14 @@
 import React, { Component } from 'react';
 
-import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
-import { Link, Redirect } from 'react-router-dom';
+import UserMenu from './UserMenu';
 
-import userIcon from '../../img/user-shortcut-icon.png';
+import UserNotifications from './UserNotifications';
 
-class UserMenu extends Component {
-    constructor(props) {
-        super(props);
+import UserMessages from "./UserMessages";
 
-        this.toggleUserMenu = this.toggleUserMenu.bind(this);
-        this.onLogout = this.onLogout.bind(this);
-        this.state = {
-            isUserMenuOpen: false,
-            logout: false
-        };
-    }
-
-    toggleUserMenu() {
-        this.setState({
-            isUserMenuOpen: !this.state.isUserMenuOpen
-        });
-    }
-
-    onLogout() {
-        this.setState({
-            logout: true
-        });
-    }
-
-    render() {
-        return (
-            <ButtonDropdown isOpen={this.state.isUserMenuOpen}
-                            className='user-menu' toggle={this.toggleUserMenu}>
-                <DropdownToggle caret color=''>
-                    <img src={userIcon} width='30' height='30' />
-                </DropdownToggle>
-                <DropdownMenu>
-                    <DropdownItem header>Your menu</DropdownItem>
-                    <DropdownItem>
-                        <button className='logout' onClick={this.onLogout}>Log out</button>
-                        {
-                            this.state.logout && <Redirect to='/' />
-                        }
-                    </DropdownItem>
-                </DropdownMenu>
-            </ButtonDropdown>
-        );
-    }
-}
-
-class UserNotifications extends Component {
-    constructor(props) {
-        super(props);
-
-        this.toggleUserNotifications = this.toggleUserNotifications.bind(this);
-
-        this.state = {
-            isUserNotificationsOpen: false,
-
-        };
-    }
-
-    toggleUserNotifications() {
-        this.setState({
-            isUserNotificationsOpen: !this.state.isUserNotificationsOpen
-        });
-    }
-
-    render() {
-        return (
-            <ButtonDropdown isOpen={this.state.isUserNotificationsOpen}
-                        className='user-notifications' toggle={this.toggleUserNotifications}>
-                <DropdownToggle color=''>
-                    <i className='fa fa-bell' />
-                    <span className='user-notifications-number'>
-                        {this.props.notifNumber}
-                    </span>
-                </DropdownToggle>
-                <DropdownMenu>
-                    <DropdownItem header>Your notifications</DropdownItem>
-                </DropdownMenu>
-            </ButtonDropdown>
-        );
-    }
-}
+import '../../scss/main-layout/FixedHeader.scss';
 
 class FixedHeader extends Component {
 
@@ -93,32 +16,14 @@ class FixedHeader extends Component {
         super(props);
 
         this.state = {
-            isFixedMenuOpen: false,
+            messagesNumber: 0,
             notificationsNumber: 3
         };
-
-        this.toggleMenu = this.toggleMenu.bind(this);
-
     }
-
-    toggleMenu() {
-        this.setState({
-            isFixedMenuOpen: !this.state.isFixedMenuOpen
-        })
-    }
-
-    //TODO: rewrite messages and notifications as dropdowns
 
     render() {
         return (
             <header className='fixed-header'>
-
-                <button className={`toggle-menu ${this.state.isFixedMenuOpen?
-                'open' : 'close'}-menu`} onClick={this.toggleMenu}>
-                    <i className='fa fa-bars' />
-                    <i className={`fa fa-caret-${this.state.isFixedMenuOpen?
-                        'right' : 'left'}`} />
-                </button>
 
                 <label className='search-box-wrapper'>
                     <i className='fa fa-search' />
@@ -126,19 +31,21 @@ class FixedHeader extends Component {
                     placeholder='...' />
                 </label>
 
-                <Link to='/new-project' className='new-project'>
-                    <i className='fa fa-plus' />
-                    Add project
-                </Link>
+                <div>
 
-                <button className={`toggle-messages ${this.state.isMessagesOpened?
-                    'open' : 'close'}-messages`}>
-                    <i className='fa fa-envelope' />
-                </button>
+                    <Link to='/new-project' className='new-project'>
+                        <i className='fa fa-plus' />
+                        Add project
+                    </Link>
 
-                <UserNotifications notifNumber={this.state.notificationsNumber} />
+                    <UserMessages messagesNumber={this.state.messagesNumber}/>
 
-                <UserMenu />
+                    <UserNotifications notificationsNumber={this.state.notificationsNumber} />
+
+                    <UserMenu />
+
+
+                </div>
 
             </header>
         );

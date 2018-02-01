@@ -1,0 +1,60 @@
+@import '../general';
+
+.fixed-sidebar {
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  width: 45px;
+  transition: .2s;
+  height: 100vh;
+  background-color: $_dark-blue;
+
+  &.opened {
+    width: 160px;
+    .fixed-sidebar-logo {
+      margin-left: 20px;
+    }
+  }
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    list-style-type: none;
+  }
+
+  &-logo {
+    margin-left: 13px;
+    transition: .2s;
+    margin-top: 4px;
+  }
+
+  .toggle-menu {
+    border: none;
+    background: transparent;
+    position: absolute;
+    right: -55px;
+    top: 16px;
+
+    i {
+      &.fa-caret-left {
+        color: $_blue;
+        position: relative;
+        left: -25px;
+      }
+
+      &.fa-caret-right {
+        color: $_blue;
+        position: relative;
+        left: 5px;
+      }
+    }
+
+    &:active, &:focus {
+      outline: none;
+    }
+  }
+
+}

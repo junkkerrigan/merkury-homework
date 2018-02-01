@@ -10,6 +10,7 @@ import logo from '../../img/entire-logo.png'
 
 import RegisterTab from "../sign-page/RegisterTab";
 
+import '../../scss/sign-page/SignPage.scss';
 
 class Sign extends Component {
 

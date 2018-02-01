@@ -1,5 +1,6 @@
 $main-font: Roboto, sans-serif;
 $_blue: #5584ff;
+$_dark-blue: #0e1a35;
 $_grey: #8492af;
 
 button, a {
@@ -9,7 +10,13 @@ button, a {
 button {
   border: none;
   background: transparent;
+}
 
+* {
+
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
   &:focus, &:active {
     outline: none;
     box-shadow: none!important;

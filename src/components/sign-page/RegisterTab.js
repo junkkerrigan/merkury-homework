@@ -8,6 +8,8 @@ import passwordIcon from '../../img/password-icon.png';
 
 import userIcon from '../../img/user-icon.png';
 
+import '../../scss/sign-page/RegisterTab.scss';
+
 class RegisterTab extends Component {
 
     constructor(props) {

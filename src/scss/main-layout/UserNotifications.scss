@@ -1,0 +1,26 @@
+@import '../general';
+
+.user-notifications {
+  &-number {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: $_blue;
+    font: 700 8px $main-font;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: -3px;
+    border: 1px solid white;
+  }
+
+  position: relative;
+  margin-left: 20px;
+
+  .btn-transparent {
+    padding: 0;
+  }
+}
