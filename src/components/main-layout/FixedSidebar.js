@@ -16,13 +16,15 @@ import usersIcon from '../../img/users-icon.png';
 import settingsIcon from '../../img/settings-icon.png';
 import logo from '../../img/entire-logo.png';
 
+import keyIndex from 'react-key-index';
+
 class FixedSidebar extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            isFixedMenuOpen: true,
+            isFixedMenuOpen: false,
             activeLink: this.props.location.pathname
         };
 
@@ -37,7 +39,7 @@ class FixedSidebar extends Component {
 
     render() {
 
-        const linksData=[
+        let linksData = [
             {
                 target: '/home',
                 icon: homeIcon,
@@ -94,7 +96,9 @@ class FixedSidebar extends Component {
             }
         ];
 
-        console.log(this.props);
+        linksData = keyIndex(linksData, 1);
+
+        //TODO: fix problem with borders on elements
         return (
             <aside className={`fixed-sidebar ${this.state.isFixedMenuOpen?
                 'opened' : ''}`}>
@@ -119,7 +123,8 @@ class FixedSidebar extends Component {
                             icon={item.icon} text={item.text}
                             active={'/' + this.props.match.params.page}
                             sizes={item.sizes}
-                            isOpened={this.state.isFixedMenuOpen} />
+                            isOpened={this.state.isFixedMenuOpen}
+                            key={item._targetId}/>
                         } )
                     }
 

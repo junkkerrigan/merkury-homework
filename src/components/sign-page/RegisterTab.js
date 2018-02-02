@@ -34,6 +34,7 @@ class RegisterTab extends Component {
             localStorage.setItem(username + '-email', email);
             localStorage.setItem(username + '-number', number);
             localStorage.setItem(username + '-password', password);
+            localStorage.setItem('currentUser', username);
             this.setState({
                 isRegistered: 'true'
             });

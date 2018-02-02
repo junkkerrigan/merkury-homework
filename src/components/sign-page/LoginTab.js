@@ -30,7 +30,6 @@ class LoginTab extends Component {
 
         if (localStorage.getItem(username + '-password') === password) {
 
-            localStorage.setItem('isUserLogged', 'true');
             localStorage.setItem('currentUser', username);
             this.setState({
                 isFormSubmitted: 'true'

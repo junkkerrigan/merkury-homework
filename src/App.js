@@ -10,6 +10,8 @@ import FixedHeader from "./components/main-layout/FixedHeader";
 
 import FixedSidebar from "./components/main-layout/FixedSidebar";
 
+import Home from "./components/pages/Home";
+
 import { createBrowserHistory } from 'history';
 
 const browserHistory=createBrowserHistory();
@@ -24,7 +26,7 @@ class App extends Component {
         return (
             <Router history={browserHistory}>
 
-                <div>
+                <div id="wrapper">
 
                     <Route exact path='/' component={Sign} />
 
@@ -32,7 +34,7 @@ class App extends Component {
 
                     <Route strict path='/:page' component={FixedSidebar} />
 
-                    <Route path='' />
+                    <Route path='/home' component={Home} />
 
                 </div>
 

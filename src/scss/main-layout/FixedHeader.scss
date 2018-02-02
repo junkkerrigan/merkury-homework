@@ -4,14 +4,18 @@
   height: 60px;
   position: fixed;
   z-index: 1000;
-  padding: 0 25px 0 0;
-  display: flex;
-  justify-content: flex-end;
   border-bottom: 1px solid rgba(132, 146, 175, 0.3);
-  align-items: center;
   width: 100%;
   left: 0;
   top: 0;
+
+
+  .container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+  }
 
   .dropdown-toggle::after {
     vertical-align: 0!important;
@@ -23,8 +27,8 @@
     &-wrapper {
       display: flex;
       align-items: center;
-      margin: 0 0 0 220px;
-      width: calc(100% - 465px);
+      margin-bottom: 0;
+      width: 30px;
 
       &:focus-within {
         i {
@@ -35,6 +39,7 @@
       i {
         opacity: 1;
         transition: .2s;
+        color: $_black;
       }
     }
 
@@ -74,6 +79,9 @@
     color: white;
     letter-spacing: 0.24px;
     font: 700 10px $main-font;
+    @media (max-width: $_sm) {
+      display: none;
+    }
   }
 
 

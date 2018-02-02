@@ -13,6 +13,9 @@
 
   &.opened {
     width: 160px;
+    @media (max-width: $_sm) {
+      width: 140px;
+    }
     .fixed-sidebar-logo {
       margin-left: 20px;
     }
@@ -36,9 +39,13 @@
     background: transparent;
     position: absolute;
     right: -55px;
+    @media (max-width: $_md) {
+      right: -35px;
+    }
     top: 16px;
 
     i {
+      color: $_black;
       &.fa-caret-left {
         color: $_blue;
         position: relative;

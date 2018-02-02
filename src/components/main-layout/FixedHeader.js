@@ -10,6 +10,8 @@ import UserMessages from "./UserMessages";
 
 import '../../scss/main-layout/FixedHeader.scss';
 
+import { Container } from 'reactstrap';
+
 class FixedHeader extends Component {
 
     constructor(props) {
@@ -21,17 +23,19 @@ class FixedHeader extends Component {
         };
     }
 
+    //TODO: connect with sidebar
+
     render() {
         return (
             <header className='fixed-header'>
 
-                <label className='search-box-wrapper'>
-                    <i className='fa fa-search' />
-                    <input type='text' name='search-box' className='search-box'
-                    placeholder='...' />
-                </label>
+                <Container>
 
-                <div>
+                    <label className='search-box-wrapper'>
+                        <i className='fa fa-search' />
+                        <input type='text' name='search-box' className='search-box'
+                               placeholder='...' />
+                    </label>
 
                     <Link to='/new-project' className='new-project'>
                         <i className='fa fa-plus' />
@@ -44,8 +48,7 @@ class FixedHeader extends Component {
 
                     <UserMenu />
 
-
-                </div>
+                </Container>
 
             </header>
         );

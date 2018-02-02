@@ -20,13 +20,16 @@
       img {
         margin-right: 10px;
       }
+
+      font: 500 14px $main-font;
+
     }
 
     border-left: 5px solid $_dark-blue;
-    font: 500 14px $main-font;
     color: white;
     background-color: $_dark-blue;
     transition: .2s;
+    font-size: 0;
 
     &:hover {
       text-decoration: none;

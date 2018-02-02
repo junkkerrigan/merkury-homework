@@ -1,7 +1,15 @@
 $main-font: Roboto, sans-serif;
+
 $_blue: #5584ff;
 $_dark-blue: #0e1a35;
 $_grey: #8492af;
+$_black: #0e1a35;
+$_red: #f83c7b;
+
+$_sm: 576px;
+$_md: 768px;
+$_lg: 992px;
+$_xl: 1200px;
 
 button, a {
   cursor: pointer;

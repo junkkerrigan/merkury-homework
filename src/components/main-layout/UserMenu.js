@@ -8,6 +8,8 @@ import userIcon from '../../img/user-shortcut-icon.png';
 
 import '../../scss/main-layout/UserMenu.scss';
 
+import { Link } from 'react-router-dom';
+
 class UserMenu extends Component {
     constructor(props) {
         super(props);
@@ -30,6 +32,7 @@ class UserMenu extends Component {
         this.setState({
             logout: true
         });
+        localStorage.setItem('currentUser', 'undefined');
     }
 
     render() {
@@ -46,6 +49,9 @@ class UserMenu extends Component {
                         {
                             this.state.logout && <Redirect to='/' />
                         }
+                    </DropdownItem>
+                    <DropdownItem>
+                        <Link to='/new-project'>New project</Link>
                     </DropdownItem>
                 </DropdownMenu>
             </ButtonDropdown>
