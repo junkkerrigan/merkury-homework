@@ -2,22 +2,9 @@
 
 .task {
 
-  &-item {
-    border-top: 1px solid rgba(132, 146, 175, 0.3);
-    width: 100%;
-    display: flex;
-    align-items: center;
-    height: 25%;
-    position: relative;
-  }
-
   &-name {
     color: $_black;
     font: 700 12px $main-font;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: 140px;
 
     &:hover {
       color: $_black;

@@ -1,0 +1,49 @@
+@import "../general";
+
+.message {
+  &-author {
+    font: 700 9px $main-font;
+    color: $_black;
+    position: relative;
+    top: 3px;
+  }
+
+  &-time {
+    color: #8492af;
+    font: 400 9px $main-font;
+    margin-left: 5px;
+    position: relative;
+    top: 3px;
+  }
+
+  &-text {
+    color: $_black;
+    font: 400 9px $main-font;
+    margin-bottom: 0;
+    position: relative;
+    top: 3px;
+  }
+
+  &-icon {
+    margin: 0 10px 0 15px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    overflow: hidden;
+    img {
+      vertical-align: top;
+    }
+  }
+
+  &-options {
+    position: relative;
+    top: -4px;
+    left: 5px;
+  }
+
+  &-feedback {
+    position: relative;
+    top: -4px;
+  }
+
+}

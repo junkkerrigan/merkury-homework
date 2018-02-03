@@ -26,7 +26,7 @@ class TaskItem extends Component {
 
     render() {
         return (
-            <li className='task-item'>
+            <li className='service-item'>
 
                 <span className='task-icon'>
                     {this.props.name[0]}

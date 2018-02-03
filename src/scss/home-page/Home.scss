@@ -16,17 +16,31 @@
     font: 700 30px $main-font;
   }
 
-  .tasks {
+  .service {
 
     border: 1px solid rgba(132, 146, 175, 0.3);
     display: flex;
     flex-direction: column;
     width: 240px;
     height: 270px;
+    background-color: white;
+
+    &-item {
+      border-top: 1px solid rgba(132, 146, 175, 0.3);
+      width: 100%;
+      display: flex;
+      align-items: center;
+      height: 25%;
+      position: relative;
+
+      &.active {
+        background-color: #f4f5f8;
+      }
+    }
 
     &-wrapper {
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
     }
 
     &-list {
@@ -40,12 +54,12 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding: 0 15px;
     }
 
     &-title {
       color: $_black;
       font: 500 18px $main-font;
-      margin: 0 0 0 15px;
     }
 
     &-number {
@@ -58,11 +72,10 @@
       font: 500 16px $main-font;
       background-color: $_blue;
       border-radius: 50%;
-      margin-right: 5px;
+      margin-left: 5px;
 
       &.active {
         background-color: $_red;
-        margin-right: 15px;
       }
 
       &-wrapper {
