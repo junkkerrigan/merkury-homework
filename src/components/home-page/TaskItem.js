@@ -26,6 +26,7 @@ class TaskItem extends Component {
 
     render() {
         return (
+
             <li className='service-item'>
 
                 <span className='task-icon'>

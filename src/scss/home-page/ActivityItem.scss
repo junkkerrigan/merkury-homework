@@ -1,0 +1,67 @@
+@import "../general";
+
+.activity {
+
+  &:last-of-type {
+    .activity-icon::after {
+      content: '';
+      width: 0;
+    }
+  }
+  &-icon {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    //overflow: hidden;
+    margin: 0 10px 0 15px;
+    img {
+      vertical-align: top;
+    }
+    &::after {
+      content: '';
+      width: 1px;
+      display: block;
+      border-bottom: 30px solid #dadfe7;
+      margin-left: 50%;
+    }
+  }
+
+  &-author {
+    font: 700 9px $main-font;
+    color: $_black;
+  }
+
+  &-type {
+    font: 400 9px $main-font;
+    color: $_grey;
+    margin: 0 2px;
+  }
+
+  &-target {
+    font: 700 9px $main-font;
+    color: $_black;
+  }
+
+  &-data {
+    white-space: nowrap;
+    max-width: calc(100% - 70px);
+    overflow: hidden;
+    padding-bottom: 8px;
+  }
+
+  &-time {
+
+    &::before {
+      content: '\f017';
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      margin-right: 3px;
+    }
+    font: 400 9px $main-font;
+    margin-top: 2px;
+    color: $_grey
+  }
+}

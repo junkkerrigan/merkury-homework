@@ -3,7 +3,7 @@
 .home {
   margin-top: 60px;
   min-height: calc(100vh - 60px);
-  margin-left: 45px;
+  margin-left:  45px;
   width: calc(100% - 45px);
   background-color: #f6f7fa;
 
@@ -18,12 +18,20 @@
 
   .service {
 
+    margin-top: 20px;
     border: 1px solid rgba(132, 146, 175, 0.3);
     display: flex;
     flex-direction: column;
     width: 240px;
     height: 270px;
     background-color: white;
+    border-collapse: collapse;
+
+    &.incomplete {
+      .service-item:last-of-type {
+        border-bottom: 1px solid rgba(132, 146, 175, 0.3);
+      }
+    }
 
     &-item {
       border-top: 1px solid rgba(132, 146, 175, 0.3);
@@ -36,11 +44,19 @@
       &.active {
         background-color: #f4f5f8;
       }
+
+      &.no-borders {
+        &:first-of-type {
+          border-top: 1px solid rgba(132, 146, 175, 0.3);
+        }
+
+        border: none;
+      }
     }
 
     &-wrapper {
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
     }
 
     &-list {
@@ -69,7 +85,7 @@
       justify-content: center;
       align-items: center;
       color: white;
-      font: 500 16px $main-font;
+      font: 500 14px $main-font;
       background-color: $_blue;
       border-radius: 50%;
       margin-left: 5px;

@@ -12,11 +12,19 @@ import TaskItem from "../home-page/TaskItem";
 
 import map from 'lodash/map';
 
+import range from 'lodash/range';
+
 import Nina from '../../img/nina.png';
 
 import James from '../../img/james.png';
 
+import Alex from '../../img/alex.png';
+
+import Alexandra from '../../img/alexandra.png';
+
 import MessageItem from "../home-page/MessageItem";
+
+import ActivityItem from "../home-page/ActivityItem";
 
 class Home extends Component {
 
@@ -24,7 +32,7 @@ class Home extends Component {
         super(props);
 
         this.state = {
-          tasksData: [
+          tasksData: keyIndex([
               {
                   name: 'New website for Symu.co',
                   timeStatus: '5 days delays',
@@ -45,7 +53,7 @@ class Home extends Component {
                   timeStatus: '10 days left',
                   isActive: false
               },
-          ],
+          ], 1),
           messagesData: keyIndex([
               {
                   icon: Nina,
@@ -71,11 +79,106 @@ class Home extends Component {
                   timeAgo: 'About 2 weeks ago',
                   text: 'Hello! Could You bring me coffee please?'
               }
-          ], 1)
+          ], 1),
+            activitiesData: keyIndex([
+                {
+                    icon: Nina,
+                    user: 'Nina Jones',
+                    type: 'add',
+                    target: 'Free UI Kit',
+                    timeAgo: 'Just now'
+                },
+                {
+                    icon: James,
+                    user: 'James Smith',
+                    type: 'comment',
+                    target: 'Free PSD Template',
+                    timeAgo: '40 minutes ago'
+                },
+                {
+                    icon: Alex,
+                    user: 'Alex Clooney',
+                    type: 'complete',
+                    target: 'Symu Website',
+                    timeAgo: '1 hour ago'
+                },
+                {
+                    icon: Alexandra,
+                    user: 'Alexandra Spears',
+                    type: 'add',
+                    target: 'Free PSD Template',
+                    timeAgo: '3 hours ago'
+                },
+                {
+                    icon: Nina,
+                    user: 'Nina Jones',
+                    type: 'add',
+                    target: 'Free UI Kit',
+                    timeAgo: 'Just now'
+                },
+                {
+                    icon: Nina,
+                    user: 'Nina Jones',
+                    type: 'add',
+                    target: 'Free UI Kit',
+                    timeAgo: 'Just now'
+                },
+                {
+                    icon: Nina,
+                    user: 'Nina Jones',
+                    type: 'add',
+                    target: 'Free UI Kit',
+                    timeAgo: 'Just now'
+                },
+                {
+                    icon: Nina,
+                    user: 'Nina Jones',
+                    type: 'add',
+                    target: 'Free UI Kit',
+                    timeAgo: 'Just now'
+                },
+                {
+                    icon: Nina,
+                    user: 'Nina Jones',
+                    type: 'add',
+                    target: 'Free UI Kit',
+                    timeAgo: 'Just now'
+                },
+                {
+                    icon: Nina,
+                    user: 'Nina Jones',
+                    type: 'add',
+                    target: 'Free UI Kit',
+                    timeAgo: 'Just now'
+                }
+            ], 1)
         };
 
         this.activeTasksNumber = this.activeTasksNumber.bind(this);
         this.newMessagesNumber = this.newMessagesNumber.bind(this);
+        this.cutString = this.cutString.bind(this);
+        this.findSpace = this.findSpace.bind(this);
+        this.activityType = this.activityType.bind(this);
+    }
+
+    activityType(actType) {
+        switch (actType) {
+            case 'add': return 'added a new project';
+            case 'comment': return 'commented project';
+            case 'complete': return 'completed task';
+            default: return undefined;
+        }
+    }
+
+    findSpace(string, idx) {
+        let ind=idx;
+        for (let i=idx;string[i]!==' ' && i>=0;i--) ind--;
+        return ind;
+    }
+
+    cutString(string, len) {
+        return (string.length>len)?
+            string.substring(0,this.findSpace(string, len)) + ' (...)' : string;
     }
 
     activeTasksNumber() {
@@ -101,23 +204,17 @@ class Home extends Component {
 
     componentWillMount() {
 
-
-
         for(let i=0;i<this.state.messagesData.length;i++) {
             if (!localStorage.getItem(this.state.messagesData._iconId)) {
                 localStorage.setItem(this.state.messagesData._iconId, 'new');
             }
         }
+
     }
 
     //TODO: text-overflow: ellipsis
     render() {
 
-      let tasksData;
-
-      tasksData = keyIndex(this.state.tasksData, 1);
-
-      console.log(this.state.messagesData);
       return (
           <section className='home'>
 
@@ -137,9 +234,15 @@ class Home extends Component {
 
                       </Col>
 
-                      <Col className='service-wrapper' sm='12' lg='4'>
+                  </Row>
 
-                          <div className='service'>
+                  <Row>
+
+                      <Col className='service-wrapper' sm='12' md='4'>
+
+                          <div className={`service
+                          ${(this.state.tasksData.length>=4)? '' :
+                              'incomplete'} `}>
 
                               <header className='service-header'>
 
@@ -166,12 +269,15 @@ class Home extends Component {
                               <ul className='service-list'>
 
                                   {
-                                      map(tasksData, (item, index) => {
-                                          return <TaskItem name={item.name}
+                                      map(this.state.tasksData, (item, index) => {
+
+                                          if (index<4)
+                                          return <TaskItem
+                                           name={this.cutString(item.name, 30)}
                                            timeStatus={item.timeStatus}
                                            locate={'/tasks/' + item._nameId}
                                            isActive={item.isActive}
-                                           key={item._nameId}/>
+                                           key={item._nameId}/>;
                                       })
                                   }
 
@@ -181,9 +287,11 @@ class Home extends Component {
 
                       </Col>
 
-                      <Col className='service-wrapper' sm='12' lg='4'>
+                      <Col className='service-wrapper' sm='12' md='4'>
 
-                          <div className='service'>
+                          <div className={`service
+                          ${(this.state.messagesData.length>=4)? '' :
+                              'incomplete'} `}>
 
                               <header className='service-header'>
 
@@ -207,12 +315,13 @@ class Home extends Component {
 
                                   {
                                       map(this.state.messagesData, (item, index) => {
+                                          if (index<4)
                                           return <MessageItem key={item._iconId}
                                           icon={item.icon} user={item.user}
                                           timeAgo={item.timeAgo}
-                                          text={item.text}
+                                          text={this.cutString(item.text, 35)}
                                           locate={'/conversations/#' + item._iconId}
-                                          id={item._iconId}/>
+                                          id={item._iconId}/>;
                                       })
                                   }
 
@@ -222,7 +331,50 @@ class Home extends Component {
 
                       </Col>
 
-                      <Col className='activity' sm='12' lg='4'>
+                      <Col className='service-wrapper' sm='12' md='4'>
+
+                          <div className={`service
+                          ${(this.state.activitiesData.length>=4)? '' :
+                              'incomplete'} `}>
+
+                              <header className='service-header'>
+
+                                  <h5 className='service-title'>
+                                      Activity
+                                  </h5>
+
+                                  <div className='service-number-wrapper'>
+
+                                      <span className='service-number'>
+                                          {
+                                              this.state.activitiesData.length
+                                          }
+                                      </span>
+
+                                  </div>
+
+                              </header>
+
+                              <ul className='service-list'>
+
+                                  {
+                                        map(this.state.activitiesData,
+                                            (item, index) => {
+                                            if (index<4)
+                                            return <ActivityItem key={item._iconId}
+                                            icon={item.icon}
+                                            user={item.user}
+                                            type={this.activityType(item.type)}
+                                            target={
+                                                item.target
+                                            }
+                                            timeAgo={item.timeAgo}/>
+                                            })
+                                  }
+
+                              </ul>
+
+                          </div>
 
                       </Col>
 
