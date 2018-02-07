@@ -1,0 +1,66 @@
+@import '../general';
+
+.chart {
+
+  &-content {
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+    }
+  }
+
+  &-total {
+    color: $_grey;
+    font: 700 20px $main-font;
+    white-space: nowrap;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+
+    .small {
+      font: 300 12px $main-font;
+      display: block;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%);
+    }
+  }
+
+  &-legend {
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+    margin-bottom: 0;
+
+    &-item {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      padding: 3px 0;
+    }
+
+    &-value {
+      color: $_grey;
+      font: 500 12px $main-font;
+      margin-left: 10px;
+    }
+
+    &-color {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+  }
+
+  &.doughnut {
+    width: 290px;
+  }
+
+}

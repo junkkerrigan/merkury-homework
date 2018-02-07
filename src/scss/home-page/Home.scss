@@ -23,6 +23,7 @@
     display: flex;
     flex-direction: column;
     width: 240px;
+    max-width: 100%;
     height: 270px;
     background-color: white;
     border-collapse: collapse;
@@ -100,4 +101,54 @@
     }
 
   }
+
+  .chart {
+
+    &-title {
+      font: 700 20px $main-font;
+      color: $_grey;
+    }
+
+    height: 240px;
+    max-width: 100%;
+    background-color: white;
+    border: 1px solid rgba(132, 146, 175, 0.3);
+    padding: 15px;
+
+    &-data {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-period {
+
+      border: none;
+      font: 700 9px $main-font;
+      color: $_black;
+      width: 60px;
+
+      &-wrapper {
+        width: 100px;
+        height: 25px;
+        border-radius: 24px;
+        padding: 5px 0 5px 5px;
+        display: flex;
+        align-items: center;
+        border: 1px solid rgba(132, 146, 175, 0.3);
+        &::before {
+          content: 'Period: ';
+          font: 700 9px $main-font;
+          color: $_grey;
+          position: relative;
+        }
+      }
+
+      option {
+        font: 700 9px $main-font;
+        color: $_black;
+      }
+    }
+  }
+
 }

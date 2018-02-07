@@ -5,6 +5,7 @@
   &-name {
     color: $_black;
     font: 700 12px $main-font;
+    white-space: nowrap;
 
     &:hover {
       color: $_black;
@@ -35,6 +36,8 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    max-width: calc(100% - 90px);
+    overflow: hidden;
   }
 
   &-title {

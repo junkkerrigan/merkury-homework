@@ -12,8 +12,6 @@ import TaskItem from "../home-page/TaskItem";
 
 import map from 'lodash/map';
 
-import range from 'lodash/range';
-
 import Nina from '../../img/nina.png';
 
 import James from '../../img/james.png';
@@ -25,6 +23,10 @@ import Alexandra from '../../img/alexandra.png';
 import MessageItem from "../home-page/MessageItem";
 
 import ActivityItem from "../home-page/ActivityItem";
+
+import DoughnutChart from "../home-page/DoughnutChart";
+
+import ScatterChart from '../home-page/ScatterChart';
 
 class Home extends Component {
 
@@ -212,7 +214,6 @@ class Home extends Component {
 
     }
 
-    //TODO: text-overflow: ellipsis
     render() {
 
       return (
@@ -226,13 +227,9 @@ class Home extends Component {
 
                   <Row>
 
-                      <Col className='sales' sm='12' md='6'>
+                      <DoughnutChart />
 
-                      </Col>
-
-                      <Col className='report' sm='12' md='6'>
-
-                      </Col>
+                      <ScatterChart />
 
                   </Row>
 

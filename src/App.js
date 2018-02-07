@@ -4,6 +4,8 @@ import { Router, Route, Redirect } from 'react-router-dom';
 
 import './scss/app.scss';
 
+import './scss/_general.scss';
+
 import Sign from "./components/pages/Sign";
 
 import FixedHeader from "./components/main-layout/FixedHeader";
@@ -26,7 +28,7 @@ class App extends Component {
         return (
             <Router history={browserHistory}>
 
-                <div id="wrapper">
+                <div>
 
                     <Route exact path='/' component={Sign} />
 
