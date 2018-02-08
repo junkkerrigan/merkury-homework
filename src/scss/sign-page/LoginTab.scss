@@ -23,19 +23,37 @@
   }
 
   &-label {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    width: 285px;
+    position: relative;
 
-    &.login {
-      margin-bottom: 25px;
+    &.password::before {
+      content: '';
+      background: url("../../img/password-icon.png");
+      width: 11px;
+      height: 13px;
+      display: block;
+      background-size: cover;
+      position: absolute;
+      top: 12px;
+      left: 10px;
     }
 
-    img, i {
-      position: relative;
-      left: 20px;
+    &.username::before {
+      content: '';
+      background: url("../../img/user-icon.png");
+      height: 14px;
+      width: 13px;
+      display: block;
+      background-size: cover;
+      position: absolute;
+      top: 12px;
+      left: 10px;
+    }
+
+    i {
       color: $_blue;
+      position: absolute;
+      top: 12px;
+      left: 10px;
     }
   }
 
@@ -47,7 +65,7 @@
     padding: 10px 80px;
 
     &.login {
-      margin-top: 25px;
+      margin-top: 50px;
     }
 
     i {

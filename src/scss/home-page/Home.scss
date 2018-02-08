@@ -6,14 +6,29 @@
   margin-left:  45px;
   width: calc(100% - 45px);
   background-color: #f6f7fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
 
   .container {
-    margin-left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &-greeting {
     color: $_black;
     font: 700 30px $main-font;
+    @media (max-width: #{$_md - 1}) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .content-wrapper {
+    width: 800px;
+    max-width: 100%;
   }
 
   .service {
@@ -57,7 +72,17 @@
 
     &-wrapper {
       display: flex;
-      justify-content: center;
+      &:last-child {
+        justify-content: flex-end;
+      }
+
+      &:nth-child(2) {
+        justify-content: center;
+      }
+
+      @media (max-width: #{$_md - 1}) {
+        justify-content: center!important;
+      }
     }
 
     &-list {
@@ -119,6 +144,18 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
+    }
+
+    &-wrapper {
+      display: flex;
+      &:last-child {
+        justify-content: flex-end;
+      }
+
+      @media (max-width: #{$_md - 1}) {
+        justify-content: center;
+      }
+      margin-top: 20px;
     }
 
     &-period {

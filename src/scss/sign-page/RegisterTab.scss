@@ -1,5 +1,7 @@
 @import '../general';
 
+
+
 .form {
 
   display: flex;
@@ -23,23 +25,93 @@
   }
 
   &-label {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    width: 285px;
+    position: relative;
 
-    &.register {
-      margin-bottom: 10px;
+    &.password::before {
+      content: '';
+      background: url("../../img/password-icon.png");
+      width: 11px;
+      height: 13px;
+      display: block;
+      background-size: cover;
+      position: absolute;
+      top: 12px;
+     left: 10px;
     }
 
-    img, i {
-      position: relative;
-      left: 20px;
+    &.username::before {
+      content: '';
+      background: url("../../img/user-icon.png");
+      height: 14px;
+      width: 13px;
+      display: block;
+      background-size: cover;
+      position: absolute;
+      top: 12px;
+     left: 10px;
+    }
+
+    i {
       color: $_blue;
+      position: absolute;
+      top: 12px;
+      left: 10px;
     }
   }
 
+  &-group {
+    margin-bottom: 5px;
+  }
 
+  /*
+  &-label {
+    position: relative;
+
+    &.password {
+      &::before {
+        content: '';
+        background: url("../../img/password-icon.png");
+        width: 11px;
+        height: 13px;
+        display: block;
+        background-size: cover;
+        position: absolute;
+        top: 12px;
+        left: 10px;
+      }
+
+      &.invalid {
+
+      }
+    }
+
+    &.username {
+
+      ::before {
+        content: '';
+        background: url("../../img/user-icon.png");
+        height: 14px;
+        width: 13px;
+        display: block;
+        background-size: cover;
+        position: absolute;
+        top: 12px;
+        left: 10px;
+      }
+
+      &.invalid {
+
+      }
+    }
+
+    i {
+      color: $_blue;
+      position: absolute;
+      top: 12px;
+     left: 10px;
+    }
+  }
+   */
 
   &-submit {
     background-color: $_blue;
@@ -58,6 +130,8 @@
 
 }
 
+
+
 .tab{
   height: 350px;
   background: #f6f7fa;
@@ -71,7 +145,7 @@
     font: 300 24px $main-font;
 
     &.register {
-      margin-bottom: 25px;
+      margin-bottom: 5px;
     }
 
     .highlight {

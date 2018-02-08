@@ -14,10 +14,11 @@ import FixedSidebar from "./components/main-layout/FixedSidebar";
 
 import Home from "./components/pages/Home";
 
+import Workflow from './components/pages/Workflow';
+
 import { createBrowserHistory } from 'history';
 
 const browserHistory=createBrowserHistory();
-
 
 class App extends Component {
     constructor(props) {
@@ -37,6 +38,8 @@ class App extends Component {
                     <Route strict path='/:page' component={FixedSidebar} />
 
                     <Route path='/home' component={Home} />
+
+                    <Route path='/workflow' component={Workflow} />
 
                 </div>
 

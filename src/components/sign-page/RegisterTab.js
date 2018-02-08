@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Link, Redirect } from 'react-router-dom';
 
-import { Form, Input, Button, Label } from 'reactstrap';
+import { Form, Input, Button, Label, FormGroup, FormFeedback } from 'reactstrap';
 
 import passwordIcon from '../../img/password-icon.png';
 
@@ -16,9 +16,13 @@ class RegisterTab extends Component {
         super(props);
 
         this.state= {
-            isRegistered: 'undefined'
+            isRegistered: undefined,
+            isUsernameValid: undefined,
+            isPasswordValid: undefined
         };
         this.registerUser = this.registerUser.bind(this);
+        this.checkUsername = this.checkUsername.bind(this);
+        this.checkPassword = this.checkPassword.bind(this);
     }
 
     registerUser(event) {
@@ -27,18 +31,47 @@ class RegisterTab extends Component {
             number=event.target.elements[1].value,
             username=event.target.elements[2].value,
             password=event.target.elements[3].value;
-        if (localStorage.getItem(username + '-password')) this.setState({
-           isRegistered: 'false'
-        }); else {
-
-            localStorage.setItem(username + '-email', email);
-            localStorage.setItem(username + '-number', number);
-            localStorage.setItem(username + '-password', password);
+        const userData = {
+          email: email,
+          number: number,
+          password: password
+        };
+        if (localStorage.getItem(username) || username.length===0 ||
+        password.length===0) this.setState({
+           isRegistered: false
+        }); else if (this.state.isPasswordValid && this.state.isUsernameValid &&
+            (typeof this.state.isPasswordValid)!=='string') {
             localStorage.setItem('currentUser', username);
+            localStorage.setItem(username, JSON.stringify(userData));
             this.setState({
-                isRegistered: 'true'
+                isRegistered: true
             });
         }
+    }
+
+    checkUsername(event) {
+        if (event.target.value.length===0) this.setState({
+            isUsernameValid: undefined
+        }); else if (localStorage.getItem(event.target.value))
+        this.setState({
+            isUsernameValid: false
+        }); else this.setState({
+                isUsernameValid: true
+        });
+    }
+
+    checkPassword(event) {
+        const password = event.target.value;
+        if (password.length===0) this.setState({
+            isPasswordValid: undefined
+        }); else if (password.length<6) this.setState({
+           isPasswordValid: 'small'
+        }); else if (password.length>20) this.setState({
+           isPasswordValid: 'big'
+        }); else this.setState({
+           isPasswordValid: true
+        });
+        console.log(this.state.isPasswordValid);
     }
 
     render() {
@@ -49,30 +82,44 @@ class RegisterTab extends Component {
 
                 <Form className='form' onSubmit={this.registerUser}>
 
-                    <Label className='form-label register'>
+                    <FormGroup className='form-label'>
                         <i className='fa fa-envelope-o' />
                         <Input placeholder='Email' type='email'
                                name='email' className='form-input' />
-                    </Label>
+                    </FormGroup>
 
-                    <Label className='form-label register'>
+                    <FormGroup className='form-label'>
                         <i className='fa fa-mobile' />
                         <Input placeholder='Phone number' type='text'
                                name='number' className='form-input' />
-                    </Label>
+                    </FormGroup>
 
-                    <Label className='form-label register'>
-                        <img src={userIcon} width="13" height="14"/>
+                    <FormGroup className='form-label username'>
                         <Input placeholder='Username' type='text'
-                               name='username' required className='form-input' />
-                    </Label>
+                               name='username' required className='form-input'
+                        valid={this.state.isUsernameValid} onChange={this.checkUsername}/>
 
-                    <Label className='form-label register'>
-                        <img src={passwordIcon} width="11" height="13"/>
+                        <FormFeedback>Username is busy</FormFeedback>
+                    </FormGroup>
+
+                    <FormGroup className='form-label password'>
+
                         <Input placeholder='Password' type='password'
-                               name='password' required className='form-input' />
-                    </Label>
+                               name='password' required className='form-input'
+                               valid={
+                                   this.state.isPasswordValid &&
+                                   (typeof this.state.isPasswordValid)!=='string'
+                               }
+                        onChange={this.checkPassword}/>
 
+                        <FormFeedback>
+                            {
+                                this.state.isPasswordValid==='small'?
+                                'Password is too small' : 'Password is too big'
+                            }
+                        </FormFeedback>
+
+                    </FormGroup>
 
                     <Button color='primary' className='form-submit register'
                     type='submit'>
@@ -81,7 +128,7 @@ class RegisterTab extends Component {
                     </Button>
 
                     {
-                        (this.state.isRegistered === 'true') &&
+                        this.state.isRegistered &&
                         <Redirect to='/home' />
                     }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Form, Input, Button, Label } from 'reactstrap';
+import { Form, Input, Button, Label, FormGroup, FormFeedback } from 'reactstrap';
 
 import passwordIcon from '../../img/password-icon.png';
 
@@ -16,10 +16,13 @@ class LoginTab extends Component {
         super(props);
 
         this.state = {
-          isFormSubmitted: 'undefined'
+          isFormSubmitted: undefined,
+          isUsernameValid: undefined,
+          isPasswordValid: undefined
         };
 
         this.checkUser = this.checkUser.bind(this);
+        this.checkUsername = this.checkUsername.bind(this);
     }
 
     checkUser(event) {
@@ -28,14 +31,26 @@ class LoginTab extends Component {
         const username = event.target.elements[0].value,
             password = event.target.elements[1].value;
 
-        if (localStorage.getItem(username + '-password') === password) {
+        const userData = JSON.parse(localStorage.getItem(username));
 
+        if (userData.password === password) {
             localStorage.setItem('currentUser', username);
             this.setState({
-                isFormSubmitted: 'true'
+                isFormSubmitted: true
             });
         } else this.setState({
-            isFormSubmitted: 'false'
+            isPasswordValid: false
+        });
+    }
+
+    checkUsername(event) {
+        const username = event.target.value;
+        if (username.length===0) this.setState({
+            isUsernameValid: undefined
+        }); else if (!localStorage.getItem(username)) this.setState({
+           isUsernameValid: false
+        }); else this.setState({
+            isUsernameValid: true
         });
     }
 
@@ -49,17 +64,25 @@ class LoginTab extends Component {
 
               <Form className='form' onSubmit={this.checkUser}>
 
-                  <Label className='form-label login'>
-                      <img src={userIcon} width="13" height="14"/>
+                  <FormGroup className='form-label username'>
                       <Input placeholder='Username' type='text'
-                             name='username' required className='form-input' />
-                  </Label>
+                             name='username' required className='form-input'
+                             onChange={this.checkUsername}
+                             valid={this.state.isUsernameValid}/>
 
-                  <Label className='form-label login'>
-                      <img src={passwordIcon} width="11" height="13"/>
+                      <FormFeedback>Unknown username</FormFeedback>
+
+                  </FormGroup>
+
+                  <FormGroup className='form-label password'>
+
                       <Input placeholder='Password' type='password'
-                             name='password' required className='form-input'/>
-                  </Label>
+                             name='password' required className='form-input'
+                             valid={this.state.isPasswordValid}/>
+
+                      <FormFeedback>Wrong password</FormFeedback>
+
+                  </FormGroup>
 
                   <Button color='primary' className='form-submit login'
                   type='submit'>
@@ -70,7 +93,7 @@ class LoginTab extends Component {
               </Form>
 
               {
-                  (this.state.isFormSubmitted === 'true') &&
+                  this.state.isFormSubmitted &&
                   <Redirect to='/home' />
               }
 

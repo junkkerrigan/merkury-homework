@@ -32,7 +32,7 @@ class UserMenu extends Component {
         this.setState({
             logout: true
         });
-        localStorage.setItem('currentUser', 'undefined');
+        localStorage.setItem('currentUser', undefined);
     }
 
     render() {

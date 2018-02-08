@@ -207,10 +207,11 @@ class Home extends Component {
     componentWillMount() {
 
         for(let i=0;i<this.state.messagesData.length;i++) {
-            if (!localStorage.getItem(this.state.messagesData._iconId)) {
-                localStorage.setItem(this.state.messagesData._iconId, 'new');
+            if (!localStorage.getItem(this.state.messagesData[i]._iconId)) {
+                localStorage.setItem(this.state.messagesData[i]._iconId, 'new');
             }
         }
+        console.log(this.state.messagesData);
 
     }
 
@@ -221,82 +222,84 @@ class Home extends Component {
 
               <Container>
 
-                  <h2 className='home-greeting'>
-                      Hello {localStorage.getItem('currentUser')}!
-                  </h2>
+                 <div className='content-wrapper'>
 
-                  <Row>
+                     <h2 className='home-greeting'>
+                         Hello {localStorage.getItem('currentUser')}!
+                     </h2>
 
-                      <DoughnutChart />
+                     <Row>
 
-                      <ScatterChart />
+                         <DoughnutChart />
 
-                  </Row>
+                         <ScatterChart />
 
-                  <Row>
+                     </Row>
 
-                      <Col className='service-wrapper' sm='12' md='4'>
+                     <Row>
 
-                          <div className={`service
+                         <Col className='service-wrapper' sm='12' md='4'>
+
+                             <div className={`service
                           ${(this.state.tasksData.length>=4)? '' :
-                              'incomplete'} `}>
+                                 'incomplete'} `}>
 
-                              <header className='service-header'>
+                                 <header className='service-header'>
 
-                                  <h5 className='service-title'>
-                                      Tasks
-                                  </h5>
+                                     <h5 className='service-title'>
+                                         Tasks
+                                     </h5>
 
-                                  <div className='service-number-wrapper'>
+                                     <div className='service-number-wrapper'>
 
                                       <span className='service-number'>
                                       {this.state.tasksData.length}
                                       </span>
 
-                                      <span className='service-number active'>
+                                         <span className='service-number active'>
                                       {
                                           this.activeTasksNumber()
                                       }
                                       </span>
 
-                                  </div>
+                                     </div>
 
-                              </header>
+                                 </header>
 
-                              <ul className='service-list'>
+                                 <ul className='service-list'>
 
-                                  {
-                                      map(this.state.tasksData, (item, index) => {
+                                     {
+                                         map(this.state.tasksData, (item, index) => {
 
-                                          if (index<4)
-                                          return <TaskItem
-                                           name={this.cutString(item.name, 30)}
-                                           timeStatus={item.timeStatus}
-                                           locate={'/tasks/' + item._nameId}
-                                           isActive={item.isActive}
-                                           key={item._nameId}/>;
-                                      })
-                                  }
+                                             if (index<4)
+                                                 return <TaskItem
+                                                     name={this.cutString(item.name, 30)}
+                                                     timeStatus={item.timeStatus}
+                                                     locate={'/tasks/' + item._nameId}
+                                                     isActive={item.isActive}
+                                                     key={item._nameId}/>;
+                                         })
+                                     }
 
-                              </ul>
+                                 </ul>
 
-                          </div>
+                             </div>
 
-                      </Col>
+                         </Col>
 
-                      <Col className='service-wrapper' sm='12' md='4'>
+                         <Col className='service-wrapper' sm='12' md='4'>
 
-                          <div className={`service
+                             <div className={`service
                           ${(this.state.messagesData.length>=4)? '' :
-                              'incomplete'} `}>
+                                 'incomplete'} `}>
 
-                              <header className='service-header'>
+                                 <header className='service-header'>
 
-                                  <h5 className='service-title'>
-                                      Messages
-                                  </h5>
+                                     <h5 className='service-title'>
+                                         Messages
+                                     </h5>
 
-                                  <div className='service-number-wrapper'>
+                                     <div className='service-number-wrapper'>
 
                                       <span className='service-number'>
                                           {
@@ -304,43 +307,43 @@ class Home extends Component {
                                           }
                                       </span>
 
-                                  </div>
+                                     </div>
 
-                              </header>
+                                 </header>
 
-                              <ul className='service-list'>
+                                 <ul className='service-list'>
 
-                                  {
-                                      map(this.state.messagesData, (item, index) => {
-                                          if (index<4)
-                                          return <MessageItem key={item._iconId}
-                                          icon={item.icon} user={item.user}
-                                          timeAgo={item.timeAgo}
-                                          text={this.cutString(item.text, 35)}
-                                          locate={'/conversations/#' + item._iconId}
-                                          id={item._iconId}/>;
-                                      })
-                                  }
+                                     {
+                                         map(this.state.messagesData, (item, index) => {
+                                             if (index<4)
+                                                 return <MessageItem key={item._iconId}
+                                                                     icon={item.icon} user={item.user}
+                                                                     timeAgo={item.timeAgo}
+                                                                     text={this.cutString(item.text, 35)}
+                                                                     locate={'/conversations/#' + item._iconId}
+                                                                     id={item._iconId}/>;
+                                         })
+                                     }
 
-                              </ul>
+                                 </ul>
 
-                          </div>
+                             </div>
 
-                      </Col>
+                         </Col>
 
-                      <Col className='service-wrapper' sm='12' md='4'>
+                         <Col className='service-wrapper' sm='12' md='4'>
 
-                          <div className={`service
+                             <div className={`service
                           ${(this.state.activitiesData.length>=4)? '' :
-                              'incomplete'} `}>
+                                 'incomplete'} `}>
 
-                              <header className='service-header'>
+                                 <header className='service-header'>
 
-                                  <h5 className='service-title'>
-                                      Activity
-                                  </h5>
+                                     <h5 className='service-title'>
+                                         Activity
+                                     </h5>
 
-                                  <div className='service-number-wrapper'>
+                                     <div className='service-number-wrapper'>
 
                                       <span className='service-number'>
                                           {
@@ -348,34 +351,36 @@ class Home extends Component {
                                           }
                                       </span>
 
-                                  </div>
+                                     </div>
 
-                              </header>
+                                 </header>
 
-                              <ul className='service-list'>
+                                 <ul className='service-list'>
 
-                                  {
-                                        map(this.state.activitiesData,
-                                            (item, index) => {
-                                            if (index<4)
-                                            return <ActivityItem key={item._iconId}
-                                            icon={item.icon}
-                                            user={item.user}
-                                            type={this.activityType(item.type)}
-                                            target={
-                                                item.target
-                                            }
-                                            timeAgo={item.timeAgo}/>
-                                            })
-                                  }
+                                     {
+                                         map(this.state.activitiesData,
+                                             (item, index) => {
+                                                 if (index<4)
+                                                     return <ActivityItem key={item._iconId}
+                                                                          icon={item.icon}
+                                                                          user={item.user}
+                                                                          type={this.activityType(item.type)}
+                                                                          target={
+                                                                              item.target
+                                                                          }
+                                                                          timeAgo={item.timeAgo}/>
+                                             })
+                                     }
 
-                              </ul>
+                                 </ul>
 
-                          </div>
+                             </div>
 
-                      </Col>
+                         </Col>
 
-                  </Row>
+                     </Row>
+
+                 </div>
 
               </Container>
 
