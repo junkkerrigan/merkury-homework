@@ -63,56 +63,6 @@
     margin-bottom: 5px;
   }
 
-  /*
-  &-label {
-    position: relative;
-
-    &.password {
-      &::before {
-        content: '';
-        background: url("../../img/password-icon.png");
-        width: 11px;
-        height: 13px;
-        display: block;
-        background-size: cover;
-        position: absolute;
-        top: 12px;
-        left: 10px;
-      }
-
-      &.invalid {
-
-      }
-    }
-
-    &.username {
-
-      ::before {
-        content: '';
-        background: url("../../img/user-icon.png");
-        height: 14px;
-        width: 13px;
-        display: block;
-        background-size: cover;
-        position: absolute;
-        top: 12px;
-        left: 10px;
-      }
-
-      &.invalid {
-
-      }
-    }
-
-    i {
-      color: $_blue;
-      position: absolute;
-      top: 12px;
-     left: 10px;
-    }
-  }
-   */
-
   &-submit {
     background-color: $_blue;
     border-radius: 36px;
