@@ -11,22 +11,3 @@ $_md: 768px;
 $_lg: 992px;
 $_xl: 1200px;
 
-button, a {
-  cursor: pointer;
-}
-
-button {
-  border: none;
-  background: transparent;
-}
-
-* {
-
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  &:focus, &:active {
-    outline: none;
-    box-shadow: none!important;
-  }
-}

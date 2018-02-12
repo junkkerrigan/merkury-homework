@@ -1,1 +1,29 @@
 @import "../general";
+
+.workflow {
+  margin-top: 60px;
+  min-height: calc(100% - 60px);
+  margin-left: 45px;
+  width: calc(100% - 45px);
+}
+
+.service-item {
+  border-top: 1px solid rgba(132, 146, 175, 0.3);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 25%;
+  position: relative;
+
+  &.active {
+    background-color: #f4f5f8;
+  }
+
+  &.no-borders {
+    &:first-of-type {
+      border-top: 1px solid rgba(132, 146, 175, 0.3);
+    }
+
+    border: none;
+  }
+}
