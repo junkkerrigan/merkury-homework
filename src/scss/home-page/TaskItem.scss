@@ -61,23 +61,49 @@
   }
 
   &-status {
-
-    color: $_grey;
     font: 400 10px $main-font;
     margin-top: 5px;
 
-    &.active {
+    &.delay {
       color: $_red;
+
+      &::before {
+        content: '\f017';
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        margin-right: 5px;
+      }
     }
 
-    &::before {
-      content: '\f017';
-      display: inline-block;
-      font: normal normal normal 14px/1 FontAwesome;
-      font-size: inherit;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      margin-right: 5px;
+    &.completed {
+      color: #00bf1b;
+
+      &::before {
+        content: '\f05d';
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        margin-right: 5px;
+      }
+    }
+
+    &.work {
+      color: $_grey;
+
+      &::before {
+        content: '\f017';
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        margin-right: 5px;
+      }
     }
   }
 

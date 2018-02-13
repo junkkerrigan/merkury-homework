@@ -25,6 +25,9 @@ class TaskItem extends Component {
     }
 
     render() {
+
+
+        if (this.props.isAtHome)
         return (
 
             <li className='service-item'>
@@ -41,10 +44,18 @@ class TaskItem extends Component {
                         </Link>
                     </h5>
 
-                    <span className={`task-status
-                        ${this.props.isActive? 'active' : ''}`}>
-                        {this.props.timeStatus}
-                    </span>
+                    {
+                        (this.props.status==='completed')?
+                            <span className='task-status completed'>
+                                Completed!
+                            </span> :
+                            <span className={`task-status
+                                ${this.props.status==='delay'? 'delay' : 'work'}`}>
+                                {this.props.time}
+                            </span>
+                    }
+
+
 
                 </div>
 
@@ -53,7 +64,40 @@ class TaskItem extends Component {
                 </button>
 
             </li>
-        );
+        ); else return (
+            <div className='workflow-item'>
+
+                <span className='task-icon'>
+                    {this.props.name[0]}
+                </span>
+
+                <div className='task-data'>
+
+                    <h5 className='task-title'>
+                        <Link to={this.props.locate} className='task-name'>
+                            {this.props.name}
+                        </Link>
+                    </h5>
+
+                    {
+                        (this.props.status==='completed')?
+                            <span className='task-status completed'>
+                                Completed!
+                            </span> :
+                            <span className={`task-status
+                                ${this.props.status==='delay'? 'delay' : 'work'}`}>
+                                {this.props.time}
+                            </span>
+                    }
+
+                </div>
+
+                <button className='task-options' onClick={this.onOptionsOpen}>
+                    <img src={taskIcon} width='3.5' height='16.5' />
+                </button>
+
+            </div>
+        )
     }
 }
 export default TaskItem;

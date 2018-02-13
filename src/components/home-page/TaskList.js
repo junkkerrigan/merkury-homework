@@ -16,29 +16,29 @@ class TaskList extends Component {
             tasksData: keyIndex([
                 {
                     name: 'New website for Symu.co',
-                    timeStatus: '5 days delays',
-                    isActive: true
+                    time: '5 days delays',
+                    status: 'delay'
                 },
                 {
                     name: 'Free business PSD Template ',
-                    timeStatus: '2 days delays',
-                    isActive: true
+                    time: '2 days delays',
+                    status: 'delay'
                 },
                 {
                     name: 'New logo for JCD.pl',
-                    timeStatus: '5 days left',
-                    isActive: false
+                    time: '5 days left',
+                    status: 'work'
                 },
                 {
                     name: 'Free Icons Set vol. 3',
-                    timeStatus: '10 days left',
-                    isActive: false
+                    time: '10 days left',
+                    status: 'work'
                 },
             ], 1)
         };
 
         this.cutString = this.cutString.bind(this);
-        this.activeTasksNumber = this.activeTasksNumber.bind(this);
+        this.delayedTasksNumber = this.delayedTasksNumber.bind(this);
         this.findSpace = this.findSpace.bind(this);
     }
 
@@ -47,11 +47,11 @@ class TaskList extends Component {
             string.substring(0,this.findSpace(string, len)) + ' (...)' : string;
     }
 
-    activeTasksNumber() {
+    delayedTasksNumber() {
         let num=0;
         const data=this.state.tasksData;
         for (let i=0; i<data.length; i++) {
-            if (data[i].isActive) num++;
+            if (data[i].status==='delay') num++;
         }
         return num;
     }
@@ -82,9 +82,9 @@ class TaskList extends Component {
                                   {this.state.tasksData.length}
                                   </span>
 
-                            <span className='service-number active'>
+                            <span className='service-number delay'>
                                   {
-                                      this.activeTasksNumber()
+                                      this.delayedTasksNumber()
                                   }
                                   </span>
 
@@ -99,8 +99,9 @@ class TaskList extends Component {
 
                                 if (index<4)
                                     return <TaskItem
+                                        isAtHome
                                         name={this.cutString(item.name, 30)}
-                                        timeStatus={item.timeStatus}
+                                        time={item.time}
                                         locate={'/tasks/' + item._nameId}
                                         isActive={item.isActive}
                                         key={item._nameId}/>;
