@@ -103,7 +103,7 @@ class TaskList extends Component {
                                         name={this.cutString(item.name, 30)}
                                         time={item.time}
                                         locate={'/tasks/' + item._nameId}
-                                        isActive={item.isActive}
+                                        status={item.status}
                                         key={item._nameId}/>;
                             })
                         }

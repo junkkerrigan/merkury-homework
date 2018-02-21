@@ -71,7 +71,6 @@ class RegisterTab extends Component {
         }); else this.setState({
            isPasswordValid: true
         });
-        console.log(this.state.isPasswordValid);
     }
 
     render() {

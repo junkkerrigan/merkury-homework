@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Router, Route, Redirect } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 
 import './scss/app.scss';
 
@@ -15,6 +15,8 @@ import FixedSidebar from "./components/main-layout/FixedSidebar";
 import Home from "./components/pages/Home";
 
 import Workflow from './components/pages/Workflow';
+
+import Calendar from "./components/pages/Calendar";
 
 import { createBrowserHistory } from 'history';
 
@@ -37,9 +39,15 @@ class App extends Component {
 
                     <Route strict path='/:page' component={FixedSidebar} />
 
-                    <Route path='/home' component={Home} />
+                    <Switch>
 
-                    <Route path='/workflow' component={Workflow} />
+                        <Route path='/home' component={Home} />
+
+                        <Route path='/workflow' component={Workflow} />
+
+                        <Route path='/calendar' component={Calendar} />
+
+                    </Switch>
 
                 </div>
 
