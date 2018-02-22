@@ -3,6 +3,7 @@
 $_pd-bottom: 30px;
 
 .calendar {
+
   @media (min-width: $_lg) {
     padding: 90px 20px $_pd-bottom 65px;
     min-height: calc(100vh + 90px + #{$_pd-bottom});
@@ -127,7 +128,7 @@ $_pd-bottom: 30px;
                 display: flex;
                 align-items: center;
               }
-              height: 35%;
+              height: 33%;
               padding: 15px;
               display: flex;
               flex-direction: column;
@@ -143,7 +144,7 @@ $_pd-bottom: 30px;
 
             }
             &:nth-of-type(2) {
-              height: 40%;
+              height: 42%;
               padding: 15px;
               border-bottom: 1px solid #dadee7;
 
@@ -160,12 +161,43 @@ $_pd-bottom: 30px;
             position: absolute;
 
             &.right {
-              left: calc(100% + 10px);
+              left: calc(100% + 15px);
+
+              &::before, &::after {
+                content: '';
+                position: absolute;
+                left: -20px; top: 10px;
+                border: 10px solid transparent;
+                border-right: 10px solid white;
+              }
+
+              &::after {
+                border-right: 10px solid rgba(132, 146, 175, 0.3);
+                left: -21px;
+                z-index: -1;
+              }
+
             }
 
             &.left {
-              right: calc(100% + 10px);
+              right: calc(100% + 15px);
+
+              &::before, &::after {
+                content: '';
+                position: absolute;
+                right: -20px; top: 10px;
+                border: 10px solid transparent;
+                border-left: 10px solid white;
+              }
+
+              &::after {
+                border-left: 10px solid rgba(132, 146, 175, 0.3);
+                right: -21px;
+                z-index: -1;
+              }
+
             }
+
             width: 150%;
             min-width: 200px;
             height: 800%;
