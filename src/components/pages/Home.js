@@ -37,7 +37,7 @@ class Home extends Component {
 
                          <DoughnutChart />
 
-                         <ScatterChart />
+                         <ScatterChart title='Report'/>
 
                      </Row>
 

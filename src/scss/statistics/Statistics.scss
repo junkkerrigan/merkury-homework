@@ -1,0 +1,140 @@
+@import "../general";
+
+.statistics {
+  margin-top: 60px;
+  min-height: calc(100vh - 60px);
+  margin-left: 45px;
+  width: calc(100% - 45px);
+  background-color: $_section-bg;
+  padding: 50px;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-title {
+    font: 700 30px $main-font;
+    color: $_black;
+  }
+
+  .content-wrapper {
+    width: 800px;
+    max-width: 100%;
+  }
+
+  .chart {
+
+    &.changeable {
+      @media (max-width: #{$_md - 1px}) {
+        height: initial;
+
+         .chart-item  {
+          margin-top: 30px;
+        }
+      }
+    }
+
+    &-title {
+      font: 700 20px $main-font;
+      color: $_grey;
+      margin-bottom: 0;
+    }
+
+    &-content {
+     width: 70%;
+    }
+
+    &-height {
+      height: calc(100% - 24px);
+    }
+
+    &-legend {
+      color: $_grey;
+      font: 400 12px $main-font;
+      &.number  {
+        font: 700 25px $main-font;
+        margin-bottom: 5px;
+      }
+    }
+
+    &-half {
+      height: 50%;
+      width: 100%;
+      padding: 15px;
+
+      &:last-child {
+        border-top: 1px solid rgba(132, 146, 175, 0.3);
+      }
+    }
+
+    height: 240px;
+    width: 100%;
+    background-color: white;
+    border: 1px solid rgba(132, 146, 175, 0.3);
+    padding: 15px;
+
+    .no-gut-p {
+      padding: 0;
+    }
+
+    .gut-m {
+      margin-left: -30px;
+    }
+
+    &-data {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-wrapper {
+      display: flex;
+      &:last-child {
+        justify-content: flex-end;
+      }
+
+      @media (max-width: #{$_md - 1}) {
+        justify-content: center;
+      }
+      margin: 20px 0;
+    }
+
+    &-period {
+
+      border: none;
+      font: 700 9px $main-font;
+      color: $_black;
+      width: 60px;
+      background-color: $_section-bg;
+
+      &-wrapper {
+
+        display: none;
+
+        &.visible {
+          display: flex;
+        }
+        width: 100px;
+        height: 25px;
+        border-radius: 24px;
+        padding: 5px 0 5px 5px;
+        align-items: center;
+        border: 1px solid rgba(132, 146, 175, 0.3);
+        &::before {
+          content: 'Period: ';
+          font: 700 9px $main-font;
+          color: $_grey;
+          position: relative;
+        }
+      }
+
+      option {
+        font: 700 9px $main-font;
+        color: $_black;
+      }
+    }
+  }
+
+}

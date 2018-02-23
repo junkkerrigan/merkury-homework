@@ -24,7 +24,7 @@ import keyIndex from 'react-key-index';
 
 import shortid from 'shortid';
 
-import UserItem from "./UserItem";
+import UserItem from "../users/UserItem";
 
 const usersOnPageNumber = 7;
 

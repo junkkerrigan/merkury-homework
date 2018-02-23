@@ -98,7 +98,7 @@ class ScatterChart extends Component {
 
                   <div className='chart-data'>
 
-                      <h5 className='chart-title'>Report</h5>
+                      <h5 className='chart-title'>{this.props.title}</h5>
 
                       <div className='chart-period-wrapper'>
 
