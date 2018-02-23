@@ -54,6 +54,7 @@
   "devDependencies": {
     "lodash": "^4.17.4",
     "react-key-index": "^0.1.1",
+    "shortid": "^2.2.8",
     "url-loader": "^0.6.2"
   }
 }

@@ -18,6 +18,8 @@ import Workflow from './components/pages/Workflow';
 
 import Calendar from "./components/pages/Calendar";
 
+import Users from "./components/users/Users";
+
 import { createBrowserHistory } from 'history';
 
 const browserHistory=createBrowserHistory();
@@ -46,6 +48,8 @@ class App extends Component {
                         <Route path='/workflow' component={Workflow} />
 
                         <Route path='/calendar' component={Calendar} />
+
+                        <Route path='/users' component={Users} />
 
                     </Switch>
 

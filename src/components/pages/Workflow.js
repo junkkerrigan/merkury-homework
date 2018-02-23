@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-import '../../scss/workflow-page/Workflow.scss';
+import '../../scss/Workflow.scss';
 
 import { Container, Row, Col } from 'reactstrap';
 
-import TaskItem from '../home-page/TaskItem';
+import TaskItem from '../home/TaskItem';
 
 import map from 'lodash/map';
 

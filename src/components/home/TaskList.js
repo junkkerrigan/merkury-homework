@@ -4,7 +4,7 @@ import keyIndex from 'react-key-index';
 
 import { Col } from 'reactstrap';
 
-import TaskItem from "../home-page/TaskItem";
+import TaskItem from ".//TaskItem";
 
 import map from 'lodash/map';
 

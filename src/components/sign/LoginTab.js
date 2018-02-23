@@ -8,7 +8,7 @@ import userIcon from '../../img/user-icon.png'
 
 import { Redirect } from 'react-router-dom';
 
-import '../../scss/sign-page/LoginTab.scss';
+import '../../scss/sign/LoginTab.scss';
 
 class LoginTab extends Component {
 

@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 
-import '../../scss/home-page/Home.scss';
+import '../../scss/home/Home.scss';
 
 import { Container, Row} from 'reactstrap';
 
-import DoughnutChart from "../home-page/DoughnutChart";
+import DoughnutChart from "../home/DoughnutChart";
 
-import ScatterChart from '../home-page/ScatterChart';
+import ScatterChart from '../home/ScatterChart';
 
-import TaskList from "../home-page/TaskList";
+import TaskList from "../home/TaskList";
 
-import MessagesList from "../home-page/MessagesList";
+import MessagesList from "../home/MessagesList";
 
-import ActivityList from "../home-page/ActivityList";
+import ActivityList from "../home/ActivityList";
 
 class Home extends Component {
 

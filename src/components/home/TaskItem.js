@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import taskIcon from '../../img/task-options-icon.png';
 
-import '../../scss/home-page/TaskItem.scss';
+import '../../scss/home/TaskItem.scss';
 
 class TaskItem extends Component {
 

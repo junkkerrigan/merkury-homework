@@ -4,7 +4,7 @@ import { Doughnut } from 'react-chartjs-2';
 
 import { Col } from 'reactstrap';
 
-import '../../scss/home-page/DoughnutChart.scss';
+import '../../scss/home/DoughnutChart.scss';
 
 import map from 'lodash/map';
 

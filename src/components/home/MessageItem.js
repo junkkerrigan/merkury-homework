@@ -6,7 +6,7 @@ import feedbackIcon from '../../img/feedback-icon.png';
 
 import optionsIcon from '../../img/options-icon.png';
 
-import '../../scss/home-page/MessageItem.scss';
+import '../../scss/home/MessageItem.scss';
 
 class MessageItem extends Component {
     constructor(props) {

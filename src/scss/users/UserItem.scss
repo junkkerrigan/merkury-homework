@@ -1,0 +1,98 @@
+@import "../general";
+
+.user {
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  border-bottom: 1px solid rgba(132, 146, 175, 0.3);
+
+  &:first-child {
+    border-top: 1px solid rgba(132, 146, 175, 0.3);
+  }
+
+  .circle {
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+
+  .hidden {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  &-name {
+    color: $_black;
+    font: 700 12px $main-font;
+    margin-bottom: 5px;
+  }
+
+  &-email, &-phone {
+    color: $_black;
+    font: 700 12px $main-font;
+  }
+
+  &-position {
+    color: $_grey;
+    font: 500 12px $main-font;
+  }
+
+  &-options {
+
+    outline: none!important;
+    color: $_grey;
+    &::before {
+      content: '\f142';
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: 20px;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+    }
+  }
+
+  &-activity {
+
+    &.online {
+      color: #00bf1b;
+    }
+
+    &.offline {
+      color: $_grey;
+    }
+
+    font: 500 12px $main-font;
+
+    &::before {
+      content: '\f017';
+      margin-right: 5px;
+      color: inherit;
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+    }
+  }
+
+  &-data {
+    border-right: 1px solid rgba(132, 146, 175, 0.3);
+
+    &:first-child {
+      width: 30%;
+      max-width: 30%;
+    }
+
+    &:last-child {
+      width: 10%;
+      max-width: 10%;
+    }
+    height: 100%;
+    width: 20%;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    max-width: 20%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

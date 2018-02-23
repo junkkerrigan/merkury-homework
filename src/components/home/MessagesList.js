@@ -4,7 +4,7 @@ import keyIndex from 'react-key-index';
 
 import { Col } from 'reactstrap';
 
-import MessageItem from "../home-page/MessageItem";
+import MessageItem from ".//MessageItem";
 
 import Nina from '../../img/nina.png';
 

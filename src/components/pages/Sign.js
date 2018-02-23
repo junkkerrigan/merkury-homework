@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 
 import { Link } from 'react-router-dom';
 
-import LoginTab from "../sign-page/LoginTab";
+import LoginTab from "../sign/LoginTab";
 
 import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
 
 import logo from '../../img/entire-logo.png'
 
-import RegisterTab from "../sign-page/RegisterTab";
+import RegisterTab from "../sign/RegisterTab";
 
-import '../../scss/sign-page/SignPage.scss';
+import '../../scss/sign/SignPage.scss';
 
 class Sign extends Component {
 

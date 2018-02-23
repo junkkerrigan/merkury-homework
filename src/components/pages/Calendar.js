@@ -8,7 +8,7 @@ import BigCalendar from 'react-big-calendar';
 
 import localizer from 'react-big-calendar/lib/localizers/moment';
 
-import '../../scss/calendar-page/Calendar.scss';
+import '../../scss/Calendar.scss';
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 

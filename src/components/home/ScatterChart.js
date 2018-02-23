@@ -4,7 +4,7 @@ import { Scatter } from 'react-chartjs-2';
 
 import { Col } from 'reactstrap';
 
-import '../../scss/home-page/ScatterChart.scss';
+import '../../scss/home/ScatterChart.scss';
 
 import map from 'lodash/map';
 

@@ -4,7 +4,7 @@ import keyIndex from 'react-key-index';
 
 import { Col } from 'reactstrap';
 
-import ActivityItem from '../home-page/ActivityItem';
+import ActivityItem from './/ActivityItem';
 
 import Nina from '../../img/nina.png';
 

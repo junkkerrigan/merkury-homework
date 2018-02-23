@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import '../../scss/home-page/ActivityItem.scss';
+import '../../scss/home/ActivityItem.scss';
 
 class ActivityItem extends Component {
     render() {
