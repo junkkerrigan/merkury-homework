@@ -13,6 +13,19 @@
   .circle {
     border-radius: 50%;
     margin-right: 15px;
+    position: relative;
+
+    &.online::after {
+      content: '';
+      width: 9px;
+      border-radius: 50%;
+      border: 2px solid white;
+      background-color: #00bf1b;
+      height: 9px;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
   }
 
   .hidden {

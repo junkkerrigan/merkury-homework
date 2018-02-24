@@ -13,7 +13,11 @@ class UserItem extends Component {
 
               <div className='user-data'>
 
-                  <img width='35' height='35' src={this.props.icon} className='circle'/>
+                  <span className={`circle ${this.props.activity==='online'?
+                      'online' : ''}`}>
+                      <img width='35' height='35' src={this.props.icon}
+                           />
+                  </span>
 
                   <div className='d-flex flex-column align-items-start'>
 

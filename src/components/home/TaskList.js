@@ -63,6 +63,7 @@ class TaskList extends Component {
     }
 
     render() {
+        console.log(this.state.tasksData);
         return (
             <Col className='service-wrapper' sm='12' md='4'>
 
