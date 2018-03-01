@@ -9,44 +9,48 @@
     }
   }
   &-icon {
-    width: 25px;
-    height: 25px;
+    width: 37px;
+    height: 37px;
     border-radius: 50%;
-    //overflow: hidden;
-    margin: 0 10px 0 15px;
+    margin-right: 10px;
     img {
       vertical-align: top;
+      width: 100%;
+      height: 100%;
     }
     &::after {
       content: '';
       width: 1px;
       display: block;
-      border-bottom: 30px solid #dadfe7;
+      border-bottom: 60px solid #dadfe7;
       margin-left: 50%;
     }
   }
 
   &-author {
-    font: 700 9px $main-font;
+    font: 700 13px $main-font;
     color: $_black;
+    white-space: nowrap;
   }
 
   &-type {
-    font: 400 9px $main-font;
+    font: 400 13px $main-font;
     color: $_grey;
-    margin: 0 2px;
+    margin: 0 5px;
+    white-space: nowrap;
   }
 
   &-target {
-    font: 700 9px $main-font;
+    font: 700 13px $main-font;
     color: $_black;
+    white-space: nowrap;
   }
 
   &-data {
-    white-space: nowrap;
-    max-width: calc(100% - 70px);
+    max-width: calc(100% - 60px);
     overflow: hidden;
-    padding-bottom: 8px;
+    text-overflow: ellipsis;
+    padding-bottom: 10px;
   }
 
   &-time {
@@ -60,8 +64,8 @@
       -webkit-font-smoothing: antialiased;
       margin-right: 3px;
     }
-    font: 400 9px $main-font;
-    margin-top: 2px;
+    font: 400 13px $main-font;
+    margin-top: 7px;
     color: $_grey
   }
 }

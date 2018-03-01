@@ -37,15 +37,9 @@ class TaskList extends Component {
             ], 1)
         };
 
-        this.cutString = this.cutString.bind(this);
         this.delayedTasksNumber = this.delayedTasksNumber.bind(this);
-        this.findSpace = this.findSpace.bind(this);
     }
 
-    cutString(string, len) {
-        return (string.length>len)?
-            string.substring(0,this.findSpace(string, len)) + ' (...)' : string;
-    }
 
     delayedTasksNumber() {
         let num=0;
@@ -56,16 +50,11 @@ class TaskList extends Component {
         return num;
     }
 
-    findSpace(string, idx) {
-        let ind=idx;
-        for (let i=idx;string[i]!==' ' && i>=0;i--) ind--;
-        return ind;
-    }
-
     render() {
         console.log(this.state.tasksData);
         return (
-            <Col className='service-wrapper' sm='12' md='4'>
+            <Col className='service-wrapper' sm='12'
+                 md={{size: 6, offset: 3}} lg={{size: 4, offset: 0}}>
 
                 <div className={`service
                           ${(this.state.tasksData.length>=4)? '' :
@@ -101,7 +90,7 @@ class TaskList extends Component {
                                 if (index<4)
                                     return <TaskItem
                                         isAtHome
-                                        name={this.cutString(item.name, 30)}
+                                        name={item.name}
                                         time={item.time}
                                         locate={'/tasks/' + item._nameId}
                                         status={item.status}

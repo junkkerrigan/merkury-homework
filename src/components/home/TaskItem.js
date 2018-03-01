@@ -38,7 +38,7 @@ class TaskItem extends Component {
 
                 <div className='task-data'>
 
-                    <h5 className='task-title'>
+                    <h5>
                         <Link to={this.props.locate} className='task-name'>
                             {this.props.name}
                         </Link>

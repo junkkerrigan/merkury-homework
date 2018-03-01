@@ -69,7 +69,8 @@ class MessagesList extends Component {
 
     render() {
         return (
-            <Col className='service-wrapper' sm='12' md='4'>
+            <Col className='service-wrapper' sm='12'
+                 md={{size: 6, offset: 3}} lg={{size: 4, offset: 0}}>
 
                 <div className={`service
                           ${(this.state.messagesData.length>=4)? '' :

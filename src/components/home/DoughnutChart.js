@@ -252,8 +252,7 @@ class DoughnutChart extends Component {
                                           tooltips: {
                                               enabled: false
                                           }
-                                      }}
-                                      width={50}
+                                      }} height={250}
                             />
 
                         </div>

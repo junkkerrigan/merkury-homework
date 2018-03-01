@@ -31,8 +31,7 @@ class MessageItem extends Component {
                 'active' : ''}`}>
 
                 <span className='message-icon'>
-                    <img src={this.props.icon} alt='user icon'
-                         width='25' height='25'/>
+                    <img src={this.props.icon} alt='user icon' />
                 </span>
 
                 <div className='message-data'>
@@ -45,11 +44,11 @@ class MessageItem extends Component {
 
                     <Link to={this.props.locate} className='message-feedback'
                           onClick={this.onMessageCheck}>
-                        <img src={feedbackIcon} width='9' height='7' />
+                        <img src={feedbackIcon} width='12' height='10' />
                     </Link>
 
                     <button className='message-options'>
-                        <img src={optionsIcon} width='8' height='8' />
+                        <img src={optionsIcon} width='12' height='12' />
                     </button>
 
                 </div>

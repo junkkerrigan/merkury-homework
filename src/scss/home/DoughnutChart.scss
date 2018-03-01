@@ -4,28 +4,38 @@
 
   &-content {
     display: flex;
-    width: 50%;
     justify-content: space-between;
     align-items: center;
     position: relative;
+
+    @media (min-width: $_xl) {
+      max-width: calc(100% - 145px);
+    }
+
+    max-width: 100%;
 
     &-wrapper {
       display: flex;
       align-items: center;
       margin-top: 20px;
+      flex-direction: column-reverse;
+
+      @media (min-width: $_xl) {
+        flex-direction: row;
+      }
     }
   }
 
   &-total {
     color: $_grey;
-    font: 700 20px $main-font;
+    font: 700 25px $main-font;
     white-space: nowrap;
     position: absolute;
     left: 50%;
     transform: translate(-50%);
 
     .small {
-      font: 300 12px $main-font;
+      font: 300 16px $main-font;
       display: block;
       position: absolute;
       left: 50%;
@@ -37,7 +47,14 @@
     display: flex;
     flex-direction: column;
     margin-left: 25px;
-    margin-bottom: 0;
+    min-width: 110px;
+    margin-bottom: 20px;
+    align-self: flex-start;
+
+    @media (min-width: $_xl) {
+      margin-bottom: 0;
+      align-self: center;
+    }
 
     &-item {
       display: flex;
@@ -48,7 +65,7 @@
 
     &-value {
       color: $_grey;
-      font: 500 12px $main-font;
+      font: 500 16px $main-font;
       margin-left: 10px;
     }
 
@@ -57,10 +74,6 @@
       height: 6px;
       border-radius: 50%;
     }
-  }
-
-  &.doughnut {
-    width: 290px;
   }
 
 }

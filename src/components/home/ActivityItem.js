@@ -8,7 +8,7 @@ class ActivityItem extends Component {
             <li className='service-item no-borders activity'>
 
                 <span className='activity-icon'>
-                    <img src={this.props.icon} width='25' height='25' />
+                    <img src={this.props.icon} />
                 </span>
 
                 <div className='activity-data'>

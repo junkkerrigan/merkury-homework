@@ -63,7 +63,7 @@ const chartData = {
         { x: 40, y: 18 },
     ],
     'week': [
-        { x: 1, y: 175 },
+        { x: 1, y: 17 },
         { x: 59, y: 49 },
         { x: 80, y: 90 },
         { x: 81, y: 29 },
@@ -91,14 +91,16 @@ class ScatterChart extends Component {
     }
 
     render() {
+
+        const { title, period } = this.props;
         return (
           <Col className='chart-wrapper' sm='12' md='7'>
 
-              <div className='chart scatter'>
+              <div className='chart'>
 
                   <div className='chart-data'>
 
-                      <h5 className='chart-title'>{this.props.title}</h5>
+                      <h5 className='chart-title'>{title}</h5>
 
                       <div className='chart-period-wrapper'>
 
@@ -130,12 +132,14 @@ class ScatterChart extends Component {
 
                   </div>
 
-                  <div className='chart-content-wrapper'>
+                  <div className='chart-content-wrapper scatter'>
 
-                      <Scatter data={this.state.currentPeriodData} options={{
+                      <Scatter data={period?
+                          createChartData(chartData[period]) :
+                          this.state.currentPeriodData} options={{
                           maintainAspectRatio: false,
                           legend: {display: false}
-                      }} height={150}/>
+                      }} height={250}/>
 
                   </div>
 

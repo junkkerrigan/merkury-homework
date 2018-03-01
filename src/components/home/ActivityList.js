@@ -4,7 +4,7 @@ import keyIndex from 'react-key-index';
 
 import { Col } from 'reactstrap';
 
-import ActivityItem from './/ActivityItem';
+import ActivityItem from './ActivityItem';
 
 import Nina from '../../img/nina.png';
 
@@ -109,7 +109,8 @@ class ActivityList extends Component {
 
     render() {
         return (
-            <Col className='service-wrapper' sm='12' md='4'>
+            <Col className='service-wrapper' sm='12'
+                 md={{size: 6, offset: 3}} lg={{size: 4, offset: 0}}>
 
                 <div className={`service
                           ${(this.state.activitiesData.length>=4)? '' :
@@ -123,11 +124,11 @@ class ActivityList extends Component {
 
                         <div className='service-number-wrapper'>
 
-                                      <span className='service-number'>
-                                          {
-                                              this.state.activitiesData.length
-                                          }
-                                      </span>
+                            <span className='service-number'>
+                                {
+                                this.state.activitiesData.length
+                                }
+                            </span>
 
                         </div>
 
@@ -140,14 +141,14 @@ class ActivityList extends Component {
                                 (item, index) => {
                                     if (index<4)
                                         return <ActivityItem key={item._iconId}
-                                                             icon={item.icon}
-                                                             user={item.user}
-                                                             type={this.activityType(item.type)}
-                                                             target={
-                                                                 item.target
-                                                             }
-                                                             timeAgo={item.timeAgo}/>
-                                })
+                                             icon={item.icon}
+                                             user={item.user}
+                                             type={this.activityType(item.type)}
+                                             target={
+                                                 item.target
+                                             }
+                                             timeAgo={item.timeAgo}/>
+                })
                         }
 
                     </ul>

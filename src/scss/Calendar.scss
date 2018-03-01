@@ -37,8 +37,10 @@ $_pd-bottom: 30px;
       text-decoration: none;
     }
 
-    &-btn-group button {
-      outline: none;
+    &-btn-group {
+      @media (max-width: $_sm) {
+        display: none;
+      }
     }
 
     &-month-view {
@@ -198,9 +200,12 @@ $_pd-bottom: 30px;
 
             }
 
-            width: 150%;
-            min-width: 200px;
-            height: 800%;
+            width: 200px;
+            height: 250px;
+
+            @media (max-width: $_sm) {
+              display: none;
+            }
             top: 0;
             background: white;
             border: 1px solid rgba(132, 146, 175, 0.3);

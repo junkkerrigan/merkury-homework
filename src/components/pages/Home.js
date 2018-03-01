@@ -27,31 +27,27 @@ class Home extends Component {
 
               <Container>
 
-                 <div className='content-wrapper'>
+                 <h2 className='home-greeting'>
+                     Hello {localStorage.getItem('currentUser')}!
+                 </h2>
 
-                     <h2 className='home-greeting'>
-                         Hello {localStorage.getItem('currentUser')}!
-                     </h2>
+                 <Row>
 
-                     <Row>
+                     <DoughnutChart />
 
-                         <DoughnutChart />
+                     <ScatterChart title='Report'/>
 
-                         <ScatterChart title='Report'/>
+                 </Row>
 
-                     </Row>
+                 <Row>
 
-                     <Row>
+                     <TaskList />
 
-                         <TaskList />
+                     <MessagesList />
 
-                         <MessagesList />
+                     <ActivityList />
 
-                         <ActivityList />
-
-                     </Row>
-
-                 </div>
+                 </Row>
 
               </Container>
 

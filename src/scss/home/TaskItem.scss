@@ -4,8 +4,12 @@
 
   &-name {
     color: $_black;
-    font: 700 12px $main-font;
+    font: 700 16px $main-font;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    max-width: 100%;
 
     &:hover {
       color: $_black;
@@ -21,14 +25,14 @@
     background-color: $_blue;
     border-radius: 50%;
     color: white;
-    font: 500 16px $main-font;
+    font: 500 20px $main-font;
     text-transform: uppercase;
-    width: 24px;
-    height: 24px;
+    width: 37px;
+    height: 37px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 10px;
+    margin-right: 15px;
   }
 
   &-data {
@@ -36,13 +40,11 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    max-width: calc(100% - 90px);
-    overflow: hidden;
-  }
+    width: calc(100% - 90px);
 
-  &-title {
-    margin-bottom: 0;
-    font-size: 12px;
+    h5 {
+      width: 100%;
+    }
   }
 
   &-options {
@@ -61,8 +63,8 @@
   }
 
   &-status {
-    font: 400 10px $main-font;
-    margin-top: 5px;
+    font: 400 12px $main-font;
+    margin-top: 10px;
 
     &.delay {
       color: $_red;

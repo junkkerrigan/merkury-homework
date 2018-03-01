@@ -13,22 +13,24 @@
 
   .container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .row {
+    width: 100%;
   }
 
   &-greeting {
     color: $_black;
-    font: 700 30px $main-font;
-    @media (max-width: #{$_md - 1}) {
-      display: flex;
-      justify-content: center;
+    font: 700 40px $main-font;
+    align-self: flex-start;
+    margin-left: 15px;
+    @media (max-width: $_sm) {
+      align-self: center;
+      margin-left: 0;
     }
-  }
-
-  .content-wrapper {
-    width: 800px;
-    max-width: 100%;
   }
 
   .service {
@@ -37,16 +39,17 @@
     border: 1px solid rgba(132, 146, 175, 0.3);
     display: flex;
     flex-direction: column;
-    width: 240px;
-    max-width: 100%;
-    height: 270px;
+    width: 100%;
     background-color: white;
-    border-collapse: collapse;
 
     &.incomplete {
       .service-item:last-of-type {
         border-bottom: 1px solid rgba(132, 146, 175, 0.3);
       }
+    }
+
+    &-list {
+      height: calc(100% - 65px);
     }
 
     &-item {
@@ -56,6 +59,7 @@
       align-items: center;
       height: 25%;
       position: relative;
+      padding: 15px 20px;
 
       &.active {
         background-color: #f4f5f8;
@@ -72,46 +76,29 @@
 
     &-wrapper {
       display: flex;
-      &:last-child {
-        justify-content: flex-end;
-      }
-
-      &:nth-child(2) {
-        justify-content: center;
-      }
-
-      @media (max-width: #{$_md - 1}) {
-        justify-content: center!important;
-      }
-    }
-
-    &-list {
-      height: 80%;
-      margin-bottom: 0;
     }
 
     &-header {
       width: 100%;
-      height: 20%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 15px;
+      padding: 15px 25px;
     }
 
     &-title {
       color: $_black;
-      font: 500 18px $main-font;
+      font: 500 20px $main-font;
     }
 
     &-number {
-      width: 24px;
-      height: 24px;
+      width: 35px;
+      height: 35px;
       display: flex;
       justify-content: center;
       align-items: center;
       color: white;
-      font: 500 14px $main-font;
+      font: 500 20px $main-font;
       background-color: $_blue;
       border-radius: 50%;
       margin-left: 5px;
@@ -130,12 +117,11 @@
   .chart {
 
     &-title {
-      font: 700 20px $main-font;
+      font: 700 25px $main-font;
       color: $_grey;
     }
 
-    height: 240px;
-    max-width: 100%;
+    width: 100%;
     background-color: white;
     border: 1px solid rgba(132, 146, 175, 0.3);
     padding: 15px;
@@ -144,45 +130,41 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
+      align-items: center;
     }
 
     &-wrapper {
       display: flex;
-      &:last-child {
-        justify-content: flex-end;
-      }
-
-      @media (max-width: #{$_md - 1}) {
-        justify-content: center;
-      }
       margin-top: 20px;
+      flex-direction: column;
     }
 
     &-period {
 
       border: none;
-      font: 700 9px $main-font;
+      font: 700 13px $main-font;
       color: $_black;
-      width: 60px;
+      width: 80px;
 
       &-wrapper {
-        width: 100px;
-        height: 25px;
+        height: 40px;
         border-radius: 24px;
-        padding: 5px 0 5px 5px;
         display: flex;
         align-items: center;
+        justify-content: center;
+        padding: 0 5px 0 10px;
         border: 1px solid rgba(132, 146, 175, 0.3);
-        &::before {
-          content: 'Period: ';
-          font: 700 9px $main-font;
-          color: $_grey;
-          position: relative;
+        @media (min-width: $_lg) {
+          &::before {
+            content: 'Period: ';
+            font: 700 13px $main-font;
+            color: $_grey;
+          }
         }
       }
 
       option {
-        font: 700 9px $main-font;
+        font: 700 13px $main-font;
         color: $_black;
       }
     }

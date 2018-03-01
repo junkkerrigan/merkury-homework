@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import moment from 'moment';
 
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import BigCalendar from 'react-big-calendar';
 
@@ -12,21 +12,21 @@ import '../../scss/Calendar.scss';
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
-import { Container } from 'reactstrap';
+import {Container} from 'reactstrap';
 
 import Nicky from '../../img/nicky.png';
 
 localizer(moment);
 
-const CustomEvent = ({ event }) => {
+const CustomEvent = ({event}) => {
 
     const getTime = (h, m) => {
-      let time = h.toString();
-      m = m.toString();
-      if (m.length === 1) m = '0' + m;
-      time += ':' + m;
-      if (h>12) time += ' pm'; else time += ' am';
-      return time;
+        let time = h.toString();
+        m = m.toString();
+        if (m.length === 1) m = '0' + m;
+        time += ':' + m;
+        if (h > 12) time += ' pm'; else time += ' am';
+        return time;
     };
 
     return <div>
@@ -34,15 +34,15 @@ const CustomEvent = ({ event }) => {
         <span className='rbc-event-content'>{event.title}</span>
 
         <div className={`rbc-event-expand
-         ${event.isDataOpen? 'open' : 'hidden'} ${event.end.getDay()>3?
-        'left' : 'right'}`}>
+         ${event.isDataOpen ? 'open' : 'hidden'} ${event.end.getDay() > 3 ?
+            'left' : 'right'}`}>
 
             <div className='rbc-event-part'>
 
                 <div className='part-wrapper'>
 
                     <span className='icon'>
-                    <img src={Nicky} />
+                    <img src={Nicky}/>
                 </span>
 
                     <div className='rbc-event-author'>
@@ -108,7 +108,7 @@ const CustomEvent = ({ event }) => {
             <div className='rbc-event-part'>
 
                 <Link to={'/calendar/' + event.id.toString()}
-                    className='rbc-event-edit'>Edit event</Link>
+                      className='rbc-event-edit'>Edit event</Link>
 
             </div>
 
@@ -236,7 +236,7 @@ class Calendar extends Component {
     }
 
     onEventAdd(slotInfo) {
-        if (slotInfo.action==='select') {
+        if (slotInfo.action === 'select') {
 
             const title =
                 prompt('Enter the event title (press cancel to undo adding)',
@@ -258,7 +258,7 @@ class Calendar extends Component {
 
     onDataOpen(e) {
         const [selectedEvent] =
-            this.state.events.filter( checkingEvent =>
+            this.state.events.filter(checkingEvent =>
                 checkingEvent.id === e.id);
         selectedEvent.isDataOpen = !selectedEvent.isDataOpen;
 
