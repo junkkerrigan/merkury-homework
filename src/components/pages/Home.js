@@ -23,7 +23,7 @@ class Home extends Component {
     render() {
 
       return (
-          <section className='home'>
+          <section className='home page-content'>
 
               <Container>
 

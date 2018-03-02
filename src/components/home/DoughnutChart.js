@@ -192,7 +192,8 @@ class DoughnutChart extends Component {
 
     render() {
         return (
-            <Col className='chart-wrapper' sm='12' md='5'>
+            <Col className='chart-wrapper' sm='12'
+                 md={{size: 10, offset: 1}} lg={{size: 5, offset: 0}}>
 
                 <div className='chart doughnut'>
 

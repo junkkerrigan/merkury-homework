@@ -94,7 +94,7 @@ class ScatterChart extends Component {
 
         const { title, period } = this.props;
         return (
-          <Col className='chart-wrapper' sm='12' md='7'>
+          <Col className='chart-wrapper' sm='12' lg={{size: 7, offset: 0}}>
 
               <div className='chart'>
 

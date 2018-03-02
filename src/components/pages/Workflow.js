@@ -160,7 +160,7 @@ class Workflow extends Component {
     render() {
 
         return (
-        <section className='workflow'>
+        <section className='workflow page-content'>
 
         <Container>
 
@@ -170,7 +170,7 @@ class Workflow extends Component {
 
                 <Droppable direction='vertical' droppableId="toDo">
 
-                    {(provided, snapshot) => (
+                    {(provided) => (
 
                         <Col md='4' className='workflow-section'>
 

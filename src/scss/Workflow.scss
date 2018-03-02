@@ -1,8 +1,8 @@
 @import "general";
 
 .workflow {
-  margin-top: 60px;
-  min-height: calc(100% - 60px);
+  margin-top: $_fixed-header-height;
+  min-height: calc(100% - #{$_fixed-header-height});
   margin-left: 45px;
   width: calc(100% - 45px);
   background-color: $_section-bg;

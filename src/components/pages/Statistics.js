@@ -296,7 +296,7 @@ class Statistics extends Component {
 
         const { totalSales, totalViews, sales } = this.state;
         return (
-          <section className='statistics'>
+          <section className='statistics page-content'>
 
               <Container>
 

@@ -15,8 +15,7 @@ class SidebarItem extends Component {
           <li className='fixed-sidebar-item'>
 
               <Link to={this.props.target} className={`fixed-sidebar-link
-                ${(this.props.active===this.props.target)? 'active' : ''}
-                ${this.props.isOpened? 'opened' : ''}`}>
+                ${(this.props.active===this.props.target)? 'active' : ''}`}>
 
                   <img src={this.props.icon} width={this.props.sizes.w}
                         height={this.props.sizes.h}/>

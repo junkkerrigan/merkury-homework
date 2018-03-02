@@ -19,17 +19,42 @@ class FixedHeader extends Component {
 
         this.state = {
             messagesNumber: 0,
-            notificationsNumber: 3
+            notificationsNumber: 3,
+            isFixedMenuOpen: false
         };
+
+        this.toggleMenu = this.toggleMenu.bind(this);
     }
 
-    //TODO: connect with sidebar
+    toggleMenu() {
+        this.setState({
+            isFixedMenuOpen: !this.state.isFixedMenuOpen
+        });
+
+        let sidebar = document.getElementsByClassName('fixed-sidebar')[0],
+            page = document.getElementsByClassName('page-content')[0],
+            sidebarLinks = document.getElementsByClassName('fixed-sidebar-link');
+
+        sidebar.classList.toggle('opened');
+        page.classList.toggle('opened');
+
+        for(let i=0;i<sidebarLinks.length; i++)
+            sidebarLinks[i].classList.toggle('opened');
+    }
 
     render() {
         return (
             <header className='fixed-header'>
 
                 <Container>
+
+                    <button className={`toggle-menu
+                    ${this.state.isFixedMenuOpen? 'opened' : ''}`}
+                            onClick={this.toggleMenu}>
+                        <i className='fa fa-bars' />
+                        <i className={`fa fa-caret-${this.state.isFixedMenuOpen?
+                            'left' : 'right'}`} />
+                    </button>
 
                     <label className='search-box-wrapper'>
                         <i className='fa fa-search' />

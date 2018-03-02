@@ -140,7 +140,7 @@ class Users extends Component {
 
 
         return (
-          <section className='users'>
+          <section className='users page-content'>
 
               <Container>
 

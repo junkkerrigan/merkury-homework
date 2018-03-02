@@ -273,7 +273,7 @@ class Calendar extends Component {
 
     render() {
         return (
-            <section className='calendar'>
+            <section className='calendar page-content'>
 
                 <Container>
 

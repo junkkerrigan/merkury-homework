@@ -8,7 +8,7 @@
     align-items: center;
     position: relative;
 
-    @media (min-width: $_xl) {
+    @media (min-width: $_md) {
       max-width: calc(100% - 145px);
     }
 
@@ -20,7 +20,7 @@
       margin-top: 20px;
       flex-direction: column-reverse;
 
-      @media (min-width: $_xl) {
+      @media (min-width: $_md) {
         flex-direction: row;
       }
     }
@@ -51,7 +51,7 @@
     margin-bottom: 20px;
     align-self: flex-start;
 
-    @media (min-width: $_xl) {
+    @media (min-width: $_md) {
       margin-bottom: 0;
       align-self: center;
     }

@@ -27,14 +27,6 @@ class FixedSidebar extends Component {
             isFixedMenuOpen: false,
             activeLink: this.props.location.pathname
         };
-
-        this.toggleMenu = this.toggleMenu.bind(this);
-    }
-
-    toggleMenu() {
-        this.setState({
-            isFixedMenuOpen: !this.state.isFixedMenuOpen
-        });
     }
 
     render() {
@@ -100,14 +92,7 @@ class FixedSidebar extends Component {
 
         //TODO: fix problem with borders on elements
         return (
-            <aside className={`fixed-sidebar ${this.state.isFixedMenuOpen?
-                'opened' : ''}`}>
-
-                <button className='toggle-menu' onClick={this.toggleMenu}>
-                    <i className='fa fa-bars' />
-                    <i className={`fa fa-caret-${this.state.isFixedMenuOpen?
-                        'left' : 'right'}`} />
-                </button>
+            <aside className='fixed-sidebar'>
 
                 <h1 className='fixed-sidebar-logo'>
                     <Link to='/home'>
@@ -118,12 +103,11 @@ class FixedSidebar extends Component {
                 <ul className='fixed-sidebar-list'>
 
                     {
-                        map(linksData, (item, index) => {
+                        map(linksData, (item) => {
                             return <SidebarItem target={item.target}
                             icon={item.icon} text={item.text}
                             active={'/' + this.props.match.params.page}
                             sizes={item.sizes}
-                            isOpened={this.state.isFixedMenuOpen}
                             key={item._targetId}/>
                         } )
                     }

@@ -1,7 +1,7 @@
 @import '../general';
 
 .fixed-header {
-  height: 60px;
+  height: $_fixed-header-height;
   position: fixed;
   z-index: 1000;
   border-bottom: 1px solid rgba(132, 146, 175, 0.3);
@@ -22,6 +22,42 @@
     vertical-align: 0!important;
     margin-left: 5px;
   }
+
+  .toggle-menu {
+    border: none;
+    background: transparent;
+    position: absolute;
+    left: 65px;
+    transition: .2s;
+
+    &.opened {
+      left: 180px;
+
+      @media (max-width: $_sm) {
+        left: 160px;
+      }
+    }
+
+    i {
+      color: $_black;
+      &.fa-caret-left {
+        color: $_blue;
+        position: relative;
+        left: -25px;
+      }
+
+      &.fa-caret-right {
+        color: $_blue;
+        position: relative;
+        left: 5px;
+      }
+    }
+
+    &:active, &:focus {
+      outline: none;
+    }
+  }
+
 
   .search-box {
 

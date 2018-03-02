@@ -10,6 +10,7 @@
   transition: .2s;
   height: 100vh;
   background-color: $_dark-blue;
+  overflow: hidden;
 
   &.opened {
     width: 160px;
@@ -33,35 +34,4 @@
     transition: .2s;
     margin-top: 4px;
   }
-
-  .toggle-menu {
-    border: none;
-    background: transparent;
-    position: absolute;
-    right: -55px;
-    @media (max-width: $_md) {
-      right: -35px;
-    }
-    top: 16px;
-
-    i {
-      color: $_black;
-      &.fa-caret-left {
-        color: $_blue;
-        position: relative;
-        left: -25px;
-      }
-
-      &.fa-caret-right {
-        color: $_blue;
-        position: relative;
-        left: 5px;
-      }
-    }
-
-    &:active, &:focus {
-      outline: none;
-    }
-  }
-
 }
