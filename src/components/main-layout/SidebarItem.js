@@ -10,12 +10,17 @@ class SidebarItem extends Component {
         super(props);
     }
 
+    componentDidUpdate() {
+        console.log(document.getElementsByClassName('fixed-sidebar')[0]);
+    }
+
     render() {
         return (
           <li className='fixed-sidebar-item'>
 
               <Link to={this.props.target} className={`fixed-sidebar-link
-                ${(this.props.active===this.props.target)? 'active' : ''}`}>
+                ${(this.props.active===this.props.target)? 'active' : ''}
+                `}>
 
                   <img src={this.props.icon} width={this.props.sizes.w}
                         height={this.props.sizes.h}/>

@@ -3,8 +3,8 @@
 .home {
   margin-top: $_fixed-header-height;
   min-height: calc(100vh - #{$_fixed-header-height});
-  margin-left:  45px;
-  width: calc(100% - 45px);
+  margin-left: $_fixed-sidebar-width;
+  width: calc(100% - #{$_fixed-sidebar-width});
   background-color: $_section-bg;
   display: flex;
   justify-content: center;

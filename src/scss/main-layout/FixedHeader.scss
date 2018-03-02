@@ -27,14 +27,14 @@
     border: none;
     background: transparent;
     position: absolute;
-    left: 65px;
+    left: 80px;
     transition: .2s;
 
     &.opened {
-      left: 180px;
+      left: 235px;
 
       @media (max-width: $_sm) {
-        left: 160px;
+        left: 175px;
       }
     }
 

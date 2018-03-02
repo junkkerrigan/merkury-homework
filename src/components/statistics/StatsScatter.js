@@ -5,15 +5,19 @@ import { Scatter } from 'react-chartjs-2';
 const StatsScatter = (props) =>
     <div className='d-flex align-items-center chart-half'>
 
-        <div className='d-flex flex-column align-items-center'>
+        <div className='chart-scatter'>
 
-            <span className='chart-legend number'>{props.number}</span>
+            <div className='d-flex flex-column align-items-center'>
 
-            <span className='chart-legend'>{props.legend}</span>
+                <span className='chart-stats-legend number'>{props.number}</span>
+
+                <span className='chart-stats-legend'>{props.legend}</span>
+
+            </div>
 
         </div>
 
-        <div className='chart-content'>
+        <div className='chart-scatter'>
 
             <Scatter data={props.data} options={{
                 maintainAspectRatio: false,
@@ -22,7 +26,7 @@ const StatsScatter = (props) =>
                     yAxes: [{ display: false }],
                     xAxes: [{ display: false }]
                 }
-                }} height={100}/>
+                }} height={125}/>
 
         </div>
 

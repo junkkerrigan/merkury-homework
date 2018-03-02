@@ -21,8 +21,7 @@ class Home extends Component {
     }
 
     render() {
-
-      return (
+        return (
           <section className='home page-content'>
 
               <Container>

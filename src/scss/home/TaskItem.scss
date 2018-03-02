@@ -65,6 +65,11 @@
   &-status {
     font: 400 12px $main-font;
     margin-top: 10px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
 
     &.delay {
       color: $_red;

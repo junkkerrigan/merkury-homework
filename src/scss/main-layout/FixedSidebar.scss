@@ -6,19 +6,16 @@
   top: 0;
   left: 0;
   z-index: 1001;
-  width: 45px;
+  width: 60px;
   transition: .2s;
   height: 100vh;
   background-color: $_dark-blue;
   overflow: hidden;
 
   &.opened {
-    width: 160px;
+    width: 200px;
     @media (max-width: $_sm) {
-      width: 140px;
-    }
-    .fixed-sidebar-logo {
-      margin-left: 20px;
+      width: 160px;
     }
   }
 
@@ -30,8 +27,9 @@
   }
 
   &-logo {
-    margin-left: 13px;
+    margin-left: 12px;
     transition: .2s;
     margin-top: 4px;
+    height: $_fixed-header-height;
   }
 }

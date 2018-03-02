@@ -3,33 +3,21 @@
 .fixed-sidebar {
   &-item {
     width: 100%;
-    height: 50px;
+    height: 75px;
   }
 
   &-link {
     width: 100%;
-    height: 50px;
+    height: 75px;
     display: flex;
     align-items: center;
-    padding-left: 13px;
+    padding-left: 17px;
     border-bottom: 1px solid #0d172d!important;
-
-    &.opened {
-      padding-left: 20px;
-
-      img {
-        margin-right: 10px;
-      }
-
-      font: 500 14px $main-font;
-
-    }
-
     border-left: 5px solid $_dark-blue;
     color: white;
     background-color: $_dark-blue;
     transition: .2s;
-    font-size: 0;
+    font: 500 20px $main-font;
 
     &:hover {
       text-decoration: none;
@@ -42,6 +30,9 @@
     }
 
     img {
+      @media (max-width: $_sm) {
+        margin-right: 23px;
+      }
       margin-right: 25px;
       transition: .2s;
     }

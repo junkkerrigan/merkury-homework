@@ -32,14 +32,9 @@ class FixedHeader extends Component {
         });
 
         let sidebar = document.getElementsByClassName('fixed-sidebar')[0],
-            page = document.getElementsByClassName('page-content')[0],
-            sidebarLinks = document.getElementsByClassName('fixed-sidebar-link');
-
+            page = document.getElementsByClassName('page-content')[0];
         sidebar.classList.toggle('opened');
         page.classList.toggle('opened');
-
-        for(let i=0;i<sidebarLinks.length; i++)
-            sidebarLinks[i].classList.toggle('opened');
     }
 
     render() {

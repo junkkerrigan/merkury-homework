@@ -118,19 +118,6 @@ class Workflow extends Component {
             }
         };
         this.onDragEnd = this.onDragEnd.bind(this);
-        this.cutString = this.cutString.bind(this);
-        this.findSpace = this.findSpace.bind(this);
-    }
-
-    cutString(string, len) {
-        return (string.length>len)?
-            string.substring(0,this.findSpace(string, len)) + ' (...)' : string;
-    }
-
-    findSpace(string, idx) {
-        let ind=idx;
-        for (let i=idx;string[i]!==' ' && i>=0;i--) ind--;
-        return ind;
     }
 
     onDragEnd(result) {
@@ -186,7 +173,7 @@ class Workflow extends Component {
 
                                     return <Draggable key={item._nameId} draggableId={item._nameId} index={index}>
 
-                                        {(provided, snapshot) => (
+                                        {(provided) => (
 
                                             <li>
 
@@ -196,7 +183,7 @@ class Workflow extends Component {
                                                     {...provided.dragHandleProps} className='workflow-item-wrapper'>
 
                                                     <TaskItem
-                                                        name={this.cutString(item.name, 30)}
+                                                        name={item.name}
                                                         time={item.time}
                                                         locate={'/tasks/' + item._nameId}
                                                         status={item.status}
@@ -226,7 +213,7 @@ class Workflow extends Component {
 
                 <Droppable direction='vertical' droppableId="inProgress">
 
-                    {(provided, snapshot) => (
+                    {(provided) => (
 
                         <Col md='4' className='workflow-section'>
 
@@ -242,7 +229,7 @@ class Workflow extends Component {
 
                                     return <Draggable key={item._nameId} draggableId={item._nameId} index={index}>
 
-                                        {(provided, snapshot) => (
+                                        {(provided) => (
 
                                             <li>
 
@@ -252,7 +239,7 @@ class Workflow extends Component {
                                                     {...provided.dragHandleProps} className='workflow-item-wrapper'>
 
                                                     <TaskItem
-                                                        name={this.cutString(item.name, 30)}
+                                                        name={item.name}
                                                         time={item.time}
                                                         locate={'/tasks/' + item._nameId}
                                                         status={item.status}
@@ -282,7 +269,7 @@ class Workflow extends Component {
 
                 <Droppable direction='vertical' droppableId="completed">
 
-                    {(provided, snapshot) => (
+                    {(provided) => (
 
                     <Col md='4' className='workflow-section'>
 
@@ -298,7 +285,7 @@ class Workflow extends Component {
 
                         return <Draggable key={item._nameId} draggableId={item._nameId} index={index}>
 
-                            {(provided, snapshot) => (
+                            {(provided) => (
 
                                 <li>
 
@@ -308,7 +295,7 @@ class Workflow extends Component {
                                         {...provided.dragHandleProps} className='workflow-item-wrapper'>
 
                                         <TaskItem
-                                        name={this.cutString(item.name, 30)}
+                                        name={item.name}
                                         time={item.time}
                                         locate={'/tasks/' + item._nameId}
                                         status={item.status}

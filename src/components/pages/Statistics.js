@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Container, Row, Col } from 'reactstrap';
 
-import '../../scss/statistics/Statistics.scss';
+import '../../scss/Statistics.scss';
 
 import StatsScatter from '../statistics/StatsScatter';
 import StatsDoughnut from '../statistics/StatsDoughnut';
@@ -300,88 +300,86 @@ class Statistics extends Component {
 
               <Container>
 
-                  <div className='content-wrapper'>
+                  <div className='statistics-header d-flex justify-content-between align-items-center'>
 
-                      <div className='d-flex justify-content-between align-items-center'>
+                      <h2 className='statistics-title'>
+                          Lorem Ipsum Stats
+                      </h2>
 
-                          <h2 className='statistics-title'>
-                              Lorem Ipsum Stats
-                          </h2>
+                      <div className='chart-period-wrapper visible'>
 
-                          <div className='chart-period-wrapper visible'>
+                          <select className='chart-period' onChange={this.onPeriodChange}>
 
-                              <select className='chart-period' onChange={this.onPeriodChange}>
+                              <option value='year'>
+                                  Last year
+                              </option>
 
-                                  <option value='year'>
-                                      Last year
-                                  </option>
+                              <option value='6 months'>
+                                  Last 6 months
+                              </option>
 
-                                  <option value='6 months'>
-                                      Last 6 months
-                                  </option>
+                              <option value='3 months'>
+                                  Last 3 months
+                              </option>
 
-                                  <option value='3 months'>
-                                      Last 3 months
-                                  </option>
+                              <option value='month'>
+                                  Last month
+                              </option>
 
-                                  <option value='month'>
-                                      Last month
-                                  </option>
+                              <option value='week'>
+                                  Last week
+                              </option>
 
-                                  <option value='week'>
-                                      Last week
-                                  </option>
-
-                              </select>
-
-                          </div>
-
+                          </select>
 
                       </div>
 
-                      <Row>
 
-                          <Col sm={12} md={5} className='chart-wrapper'>
+                  </div>
 
-                              <div className='chart no-gut-p'>
+                  <Row>
 
-                                  <StatsScatter number={totalSales.number}
-                                      legend='Sales'
-                                      data={totalSales.data}/>
+                      <Col sm='12' md={{size: 8, offset: 2}} lg={{size: 5, offset: 0}}
+                           className='chart-wrapper'>
 
-                                  <StatsScatter number={totalViews.number}
-                                      legend='Views'
-                                      data={totalViews.data}/>
+                          <div className='chart no-gut-p'>
 
-                              </div>
+                              <StatsScatter number={totalSales.number}
+                                  legend='Sales'
+                                  data={totalSales.data}/>
 
-                          </Col>
-
-                          <ScatterChart title='Active users' period={this.state.period} />
-
-                      </Row>
-
-                      <Row noGutters>
-
-                          <div className='chart changeable'>
-
-                              <h5 className='chart-title'>Total sales</h5>
-
-                              <Row noGutters className='chart-height'>
-
-                                  <StatsDoughnut data={sales.direct} legend='Direct sales'/>
-
-                                  <StatsDoughnut data={sales.channel1} legend='Channel sales'/>
-
-                                  <StatsDoughnut data={sales.channel2} legend='Channel sales'/>
-
-                              </Row>
+                              <StatsScatter number={totalViews.number}
+                                  legend='Views'
+                                  data={totalViews.data}/>
 
                           </div>
 
-                      </Row>
+                      </Col>
 
-                  </div>
+                      <ScatterChart title='Active users' period={this.state.period} />
+
+                  </Row>
+
+                  <Row noGutters>
+
+                      <Col sm='12' md={{size: 8, offset: 2}} lg={{size: 12, offset: 0}}
+                           className='chart'>
+
+                          <h5 className='chart-title'>Total sales</h5>
+
+                          <Row noGutters className='chart-doughnut-wrapper'>
+
+                              <StatsDoughnut data={sales.direct} legend='Direct sales'/>
+
+                              <StatsDoughnut data={sales.channel1} legend='Channel sales'/>
+
+                              <StatsDoughnut data={sales.channel2} legend='Channel sales'/>
+
+                          </Row>
+
+                      </Col>
+
+                  </Row>
 
               </Container>
 

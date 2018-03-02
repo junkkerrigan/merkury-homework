@@ -29,7 +29,6 @@ class TaskItem extends Component {
 
         if (this.props.isAtHome)
         return (
-
             <li className='service-item'>
 
                 <span className='task-icon'>
@@ -43,7 +42,6 @@ class TaskItem extends Component {
                             {this.props.name}
                         </Link>
                     </h5>
-
                     {
                         (this.props.status==='completed')?
                             <span className='task-status completed'>
@@ -54,9 +52,6 @@ class TaskItem extends Component {
                                 {this.props.time}
                             </span>
                     }
-
-
-
                 </div>
 
                 <button className='task-options' onClick={this.onOptionsOpen}>

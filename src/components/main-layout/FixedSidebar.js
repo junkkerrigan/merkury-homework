@@ -37,8 +37,8 @@ class FixedSidebar extends Component {
                 icon: homeIcon,
                 text: 'Home',
                 sizes: {
-                    w: '12',
-                    h: '10.5'
+                    w: '18',
+                    h: '15.75'
                 }
             },
             {
@@ -46,8 +46,8 @@ class FixedSidebar extends Component {
                 icon: workflowIcon,
                 text: 'Workflow',
                 sizes: {
-                    w: '10',
-                    h: '9.5'
+                    w: '15',
+                    h: '14.25'
                 }
             },
             {
@@ -55,8 +55,8 @@ class FixedSidebar extends Component {
                 icon: statisticsIcon,
                 text: 'Statistics',
                 sizes: {
-                    w: '12',
-                    h: '11'
+                    w: '18',
+                    h: '16.5'
                 }
             },
             {
@@ -64,8 +64,8 @@ class FixedSidebar extends Component {
                 icon: calendarIcon,
                 text: 'Calendar',
                 sizes: {
-                    w: '10',
-                    h: '10'
+                    w: '15',
+                    h: '15'
                 }
             },
             {
@@ -73,8 +73,8 @@ class FixedSidebar extends Component {
                 icon: usersIcon,
                 text: 'Users',
                 sizes: {
-                    w: '10',
-                    h: '10'
+                    w: '15',
+                    h: '15'
                 }
             },
             {
@@ -82,8 +82,8 @@ class FixedSidebar extends Component {
                 icon: settingsIcon,
                 text: 'Settings',
                 sizes: {
-                    w: '10.5',
-                    h: '11'
+                    w: '15.75',
+                    h: '16.5'
                 }
             }
         ];
@@ -96,7 +96,7 @@ class FixedSidebar extends Component {
 
                 <h1 className='fixed-sidebar-logo'>
                     <Link to='/home'>
-                        <img src={logo} width='90' height='25' />
+                        <img src={logo} width='135' height='37.5' />
                     </Link>
                 </h1>
 
@@ -105,10 +105,10 @@ class FixedSidebar extends Component {
                     {
                         map(linksData, (item) => {
                             return <SidebarItem target={item.target}
-                            icon={item.icon} text={item.text}
-                            active={'/' + this.props.match.params.page}
-                            sizes={item.sizes}
-                            key={item._targetId}/>
+                                    icon={item.icon} text={item.text}
+                                    active={'/' + this.props.match.params.page}
+                                    sizes={item.sizes}
+                                    key={item._targetId}/>
                         } )
                     }
 

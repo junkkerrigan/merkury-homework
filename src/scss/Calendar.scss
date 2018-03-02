@@ -5,10 +5,10 @@ $_pd-bottom: 30px;
 .calendar {
 
   @media (min-width: $_lg) {
-    padding: 90px 20px $_pd-bottom 65px;
+    padding: #{$_fixed-header-height + 30px} 20px $_pd-bottom #{$_fixed-sidebar-width + 20px};
     min-height: calc(100vh + 30px + #{$_pd-bottom + $_fixed-header-height});
   }
-  padding: $_fixed-header-height 0 $_pd-bottom 45px;
+  padding: $_fixed-header-height 0 $_pd-bottom $_fixed-sidebar-width;
   height: 0;
   min-height: calc(100vh + #{$_fixed-header-height} + #{$_pd-bottom});
   width: 100%;

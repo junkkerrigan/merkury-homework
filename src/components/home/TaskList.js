@@ -51,7 +51,6 @@ class TaskList extends Component {
     }
 
     render() {
-        console.log(this.state.tasksData);
         return (
             <Col className='service-wrapper' sm='12'
                  md={{size: 6, offset: 3}} lg={{size: 4, offset: 0}}>

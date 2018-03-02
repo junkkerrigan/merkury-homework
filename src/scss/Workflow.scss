@@ -3,17 +3,17 @@
 .workflow {
   margin-top: $_fixed-header-height;
   min-height: calc(100% - #{$_fixed-header-height});
-  margin-left: 45px;
-  width: calc(100% - 45px);
+  margin-left: $_fixed-sidebar-width;
+  width: calc(100% - #{$_fixed-sidebar-width});
   background-color: $_section-bg;
   padding: 30px 0;
 
   &-item {
     border: 1px solid rgba(132, 146, 175, 0.3);
     width: 100%;
+    padding: 20px;
     display: flex;
     align-items: center;
-    height: 60px;
     position: relative;
     background: white;
 
@@ -23,8 +23,8 @@
   }
 
   &-list {
-    max-width: 100%;
-    width: 230px;
+    width: 100%;
+    height: 100%;
   }
 
   &-section {
@@ -45,10 +45,9 @@
     }
 
     &-title {
-      font: 700 20px $main-font;
+      font: 700 25px $main-font;
       color: $_black;
-      max-width: 100%;
-      width: 230px;
+      width: 100%;
       margin-bottom: 20px;
       position: relative;
       .number {
@@ -63,15 +62,12 @@
         -webkit-font-smoothing: antialiased;
         position: absolute;
         right: 0;
+        top: 50%;
+        transform: translate(0, -50%);
         font-size: 26px;
         color: $_grey;
       }
     }
   }
-
-  &-list {
-    height: 100%;
-  }
-
 }
 
