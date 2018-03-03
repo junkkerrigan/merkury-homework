@@ -117,7 +117,6 @@ const CustomEvent = ({event}) => {
     </div>;
 };
 
-
 let allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k]);
 
 let defaultEvents = [

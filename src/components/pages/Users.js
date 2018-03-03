@@ -100,13 +100,14 @@ const addKeys = (arr) => arr.map((item) =>
         key: shortid.generate()
     }));
 
-const activityComparator = (u1, u2) => {
-    if (u1.activity==='online' && u2.activity!=='online') return -1;
-    else if (u2.activity==='online' && u1.activity!=='online') return 1;
-};
-
-const alphabetComparator = (u1, u2) => {
-  return u1.name.localeCompare(u2.name);
+const comparator = {
+    activity: (u1, u2) => {
+        if (u1.activity==='online' && u2.activity!=='online') return -1;
+        else if (u2.activity==='online' && u1.activity!=='online') return 1;
+    },
+    alphabetize: (u1, u2) => {
+        return u1.name.localeCompare(u2.name);
+    }
 };
 
 class Users extends Component {
@@ -124,19 +125,17 @@ class Users extends Component {
 
     onViewChange(event) {
         this.setState({
-            view: event.target.value
+            viewType: event.target.value
         })
     }
 
     //TODO: make sorts, pagination
 
     render() {
-
-        let visibleUsers = this.state.users.sort(activityComparator);
-        console.log(visibleUsers);
+        let visibleUsers = this.state.users.sort(comparator[this.state.viewType]);
         visibleUsers = visibleUsers.slice(
-            usersOnPageNumber*this.state.pageNumber,
-            Math.min(usersOnPageNumber*(this.state.pageNumber + 1), this.state.users.length));
+        usersOnPageNumber*this.state.pageNumber,
+        Math.min(usersOnPageNumber*(this.state.pageNumber + 1), this.state.users.length));
 
 
         return (
@@ -144,7 +143,7 @@ class Users extends Component {
 
               <Container>
 
-                  <Row className='users-header'>
+                  <Row noGutters className='users-header'>
 
                       <h2 className='users-title'>
                           Users <span className='users-number'>
@@ -166,7 +165,7 @@ class Users extends Component {
 
                   </Row>
 
-                  <Row className='users-list-legend'>
+                  <Row noGutters className='users-list-legend'>
 
                       <span>Name</span>
 
@@ -178,7 +177,7 @@ class Users extends Component {
 
                   </Row>
 
-                  <ul className='users-list row'>
+                  <ul className='users-list row no-gutters'>
 
                       {
                           map(visibleUsers, (item) =>

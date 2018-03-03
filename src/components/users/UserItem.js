@@ -5,6 +5,19 @@ import '../../scss/users/UserItem.scss';
 class UserItem extends Component {
     constructor(props) { // constructor for options
         super(props);
+
+        this.state = {
+            isDataOpen: false
+        };
+
+        this.openData = this.openData.bind(this);
+    }
+
+    openData() {
+        this.setState({
+            isDataOpen: !this.state.isDataOpen
+        });
+        console.log(this.state.isDataOpen);
     }
 
     render() {
@@ -15,55 +28,57 @@ class UserItem extends Component {
 
                   <span className={`circle ${this.props.activity==='online'?
                       'online' : ''}`}>
-                      <img width='35' height='35' src={this.props.icon}
+                      <img src={this.props.icon}
                            />
                   </span>
 
-                  <div className='d-flex flex-column align-items-start'>
+                  <div className='d-flex flex-column align-items-start user-person'>
 
-                      <span className='user-name hidden'>
+                      <span className='user-name ellipsis'>
                           {this.props.name}
                       </span>
 
-                      <span className='user-position hidden'>
+                      <span className='user-position ellipsis'>
                           {this.props.position}
                       </span>
 
                   </div>
 
+                  <button className='user-data-expand' onClick={this.openData} />
+
               </div>
 
-              <div className='user-data'>
+              <div className={`user-data ${this.state.isDataOpen? '' : 'hidden'}`}>
 
-                  <span className={`user-activity
-                        ${(this.props.activity==='online')?
-                      'online' : 'offline'
+              <span className={`user-activity ellipsis
+                    ${(this.props.activity==='online')?
+                  'online' : 'offline'
                   }`}>
-                      {
-                          (this.props.activity==='online')? 'Online now!' :
-                              this.props.activity + ' ago'
-                      }
-                  </span>
+                  {
+                      (this.props.activity==='online')? 'Online now!' :
+                          this.props.activity + ' ago'
+                  }
+              </span>
 
               </div>
 
-              <div className='user-data'>
+              <div className={`user-data ${this.state.isDataOpen? '' : 'hidden'}`}>
 
-                  <span className='hidden user-email'>
-                      {this.props.email}
-                  </span>
-
-              </div>
-
-              <div className='user-data'>
-
-                    <span className='hidden user-phone'>
-                      {this.props.phone}
-                    </span>
+              <span className='ellipsis user-email'>
+                  {this.props.email}
+              </span>
 
               </div>
 
-              <div className='user-data justify-content-center'>
+              <div className={`user-data ${this.state.isDataOpen? '' : 'hidden'}`}>
+
+                <span className='ellipsis user-phone'>
+                  {this.props.phone}
+                </span>
+
+              </div>
+
+              <div className={`user-data ${this.state.isDataOpen? '' : 'hidden'}`}>
 
                   <button className='user-options' />
 

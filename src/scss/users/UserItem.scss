@@ -2,51 +2,78 @@
 
 .user {
   width: 100%;
-  height: 60px;
   background-color: white;
   border-bottom: 1px solid rgba(132, 146, 175, 0.3);
 
-  &:first-child {
+  @media (max-width: $_md) {
+    margin-bottom: 20px;
+    margin-left: 25%;
+    width: 50%;
+  }
+
+  @media (max-width: $_sm) {
+    width: 100%;
+    margin-bottom: 20px;
+    margin-left: 0;
+  }
+
+    &:first-child {
     border-top: 1px solid rgba(132, 146, 175, 0.3);
   }
+
 
   .circle {
     border-radius: 50%;
     margin-right: 15px;
     position: relative;
+    width: 50px;
+    height: 50px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
 
     &.online::after {
       content: '';
-      width: 9px;
+      width: 11px;
+      height: 11px;
       border-radius: 50%;
       border: 2px solid white;
       background-color: #00bf1b;
-      height: 9px;
       position: absolute;
       right: 0;
       top: 0;
     }
   }
 
-  .hidden {
+  .ellipsis {
     white-space: nowrap;
     overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &-person {
+    width: calc(100% - 90px);
   }
 
   &-name {
     color: $_black;
-    font: 700 12px $main-font;
+    font: 700 16px $main-font;
     margin-bottom: 5px;
+    max-width: 100%;
   }
 
   &-email, &-phone {
     color: $_black;
-    font: 700 12px $main-font;
+    font: 700 16px $main-font;
+    max-width: 100%;
   }
 
   &-position {
     color: $_grey;
-    font: 500 12px $main-font;
+    font: 500 16px $main-font;
+    max-width: 100%;
   }
 
   &-options {
@@ -57,7 +84,7 @@
       content: '\f142';
       display: inline-block;
       font: normal normal normal 14px/1 FontAwesome;
-      font-size: 20px;
+      font-size: 30px;
       text-rendering: auto;
       -webkit-font-smoothing: antialiased;
     }
@@ -73,7 +100,8 @@
       color: $_grey;
     }
 
-    font: 500 12px $main-font;
+    font: 500 16px $main-font;
+    max-width: 100%;
 
     &::before {
       content: '\f017';
@@ -88,24 +116,62 @@
   }
 
   &-data {
+
+    &-expand {
+      display: none;
+      @media (max-width: $_md) {
+        display: initial;
+      }
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      right: 20px;
+      outline: none!important;
+      color: $_grey;
+
+      &::before {
+        content: '\f107';
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: 30px;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+      }
+    }
+
+
+
     border-right: 1px solid rgba(132, 146, 175, 0.3);
+
+    @media (max-width: $_md) {
+      border-bottom: 1px solid rgba(132, 146, 175, 0.3);
+
+      &.hidden {
+        display: none;
+      }
+      border-left: 1px solid rgba(132, 146, 175, 0.3);
+    }
 
     &:first-child {
       width: 30%;
-      max-width: 30%;
+      border-left: 1px solid rgba(132, 146, 175, 0.3);
     }
 
     &:last-child {
       width: 10%;
-      max-width: 10%;
+      justify-content: center;
+      @media (max-width: $_md) {
+        border-bottom: none;
+      }
     }
-    height: 100%;
+
+    @media (max-width: $_md) {
+      width: 100%!important;
+    }
     width: 20%;
-    padding: 0 20px;
+    padding: 20px 25px;
     display: flex;
     align-items: center;
-    max-width: 20%;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    position: relative;
   }
 }
