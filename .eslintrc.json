@@ -1,0 +1,31 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "linebreak-style": 0,
+    "one-var": 0,
+    "no-underscore-dangle": 0,
+    "no-shadow": 0,
+    "no-plusplus": 0,
+    "comma-dangle": 0,
+    "no-alert": 0,
+    "react/forbid-prop-types": 0,
+    "jsx-a11y/label-has-for": 0
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "commonjs": true
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 6
+  },
+  "plugins": [
+    "react"
+  ]
+}
+/*
+
+*/

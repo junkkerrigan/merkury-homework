@@ -9,7 +9,7 @@ const extractPlugin = new ExtractTextPlugin({
 
 module.exports = {
     context: path.resolve(__dirname, "src"),
-    entry: "./index.js",
+    entry: "./index.jsx",
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: "./[name].bundle.js"
@@ -26,12 +26,19 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
-                include: /src/,
+                enforce: "pre",
+                test: /\.(jsx|js)$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader"
-                }
+                use: [
+                    "eslint-loader"
+                ],
+            },
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: [
+                    "babel-loader"
+                ],
             },
             {
                 test: /\.html$/,
@@ -80,6 +87,9 @@ module.exports = {
                 use: ['file-loader']
             }
         ]
+    },
+    resolve: {
+        extensions: ['.js', '.jsx'],
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
