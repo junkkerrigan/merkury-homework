@@ -1,15 +1,14 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
-
 import Sign from './components/pages/Sign';
 import FixedHeader from './components/main-layout/FixedHeader';
 import FixedSidebar from './components/main-layout/FixedSidebar';
 import Home from './components/pages/Home';
 import Workflow from './components/pages/Workflow';
+import Statistics from './components/pages/Statistics';
 import Calendar from './components/pages/Calendar';
 import Users from './components/pages/Users';
-import Statistics from './components/pages/Statistics';
 
 import './scss/app.scss';
 import './scss/_general.scss';
