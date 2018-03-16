@@ -1,11 +1,25 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Container } from 'reactstrap';
+import { connect } from 'react-redux';
 import UserMenu from './UserMenu';
 import UserNotifications from './UserNotifications';
 import UserMessages from './UserMessages';
+import { toggleMenu } from '../../actions';
 
 import '../../scss/main-layout/FixedHeader.scss';
+
+const mapStateToProps = state => {
+  return {
+    isFixedMenuOpen: state.menu.isFixedMenuOpen
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    toggleMenu: () => dispatch(toggleMenu())
+  }
+};
 
 class FixedHeader extends Component {
   constructor(props) {
@@ -25,10 +39,12 @@ class FixedHeader extends Component {
       isFixedMenuOpen: !this.state.isFixedMenuOpen,
     });
 
-    const sidebar = document.getElementsByClassName('fixed-sidebar')[0],
+    this.props.toggleMenu();
+    /*const sidebar = document.getElementsByClassName('fixed-sidebar')[0],
       page = document.getElementsByClassName('page-content')[0];
     sidebar.classList.toggle('opened');
-    page.classList.toggle('opened');
+    page.classList.toggle('opened');*/
+
   }
 
   render() {
@@ -38,11 +54,11 @@ class FixedHeader extends Component {
         <Container>
 
           <button
-            className={`toggle-menu ${this.state.isFixedMenuOpen ? 'opened' : ''}`}
+            className={`toggle-menu ${this.props.isFixedMenuOpen ? 'opened' : ''}`}
             onClick={this.toggleMenu}
           >
             <i className="fa fa-bars" />
-            <i className={`fa fa-caret-${this.state.isFixedMenuOpen ? 'left' : 'right'}`} />
+            <i className={`fa fa-caret-${this.props.isFixedMenuOpen ? 'left' : 'right'}`} />
           </button>
 
           <label className="search-box-wrapper">
@@ -73,4 +89,4 @@ class FixedHeader extends Component {
   }
 }
 
-export default FixedHeader;
+export default connect(mapStateToProps, mapDispatchToProps)(FixedHeader);

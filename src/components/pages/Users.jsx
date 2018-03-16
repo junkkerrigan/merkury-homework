@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Container, Row } from 'reactstrap';
 import map from 'lodash/map';
 import shortid from 'shortid';
+import store from '../../store';
+import { connect } from 'react-redux';
 import UserItem from '../users/UserItem';
 
 import '../../scss/users/Users.scss';
@@ -99,6 +101,12 @@ const comparator = {
   alphabetize: (u1, u2) => u1.name.localeCompare(u2.name),
 };
 
+const mapStateToProps = state => {
+  return {
+    isFixedMenuOpen: state.menu.isFixedMenuOpen
+  }
+};
+
 class Users extends Component {
   constructor(props) {
     super(props);
@@ -128,7 +136,7 @@ class Users extends Component {
     );
 
     return (
-      <section className="users page-content">
+      <section className={`users page-content ${this.props.isFixedMenuOpen? 'opened' : ''}`}>
 
         <Container>
 
@@ -192,4 +200,5 @@ class Users extends Component {
   }
 }
 
-export default Users;
+export default connect(mapStateToProps)(Users);
+

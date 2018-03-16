@@ -1,6 +1,8 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
+import { Provider } from 'react-redux';
+import store from './store';
 import Sign from './components/pages/Sign';
 import FixedHeader from './components/main-layout/FixedHeader';
 import FixedSidebar from './components/main-layout/FixedSidebar';
@@ -10,39 +12,40 @@ import Statistics from './components/pages/Statistics';
 import Calendar from './components/pages/Calendar';
 import Users from './components/pages/Users';
 
-import './scss/app.scss';
-import './scss/_general.scss';
-
 const browserHistory = createBrowserHistory();
 
 const App = () => (
-  <Router history={browserHistory}>
+  <Provider store={store}>
 
-    <div>
+    <Router history={browserHistory}>
 
-      <Route exact path="/" component={Sign} />
+      <div>
 
-      <Route strict path="/:page" component={FixedHeader} />
+        <Route exact path="/" component={Sign} />
 
-      <Route strict path="/:page" component={FixedSidebar} />
+        <Route strict path="/:page" component={FixedHeader} />
 
-      <Switch>
+        <Route strict path="/:page" component={FixedSidebar} />
 
-        <Route path="/home" component={Home} />
+        <Switch>
 
-        <Route path="/workflow" component={Workflow} />
+          <Route path="/home" component={Home} />
 
-        <Route path="/calendar" component={Calendar} />
+          <Route path="/workflow" component={Workflow} />
 
-        <Route path="/users" component={Users} />
+          <Route path="/calendar" component={Calendar} />
 
-        <Route path="/statistics" component={Statistics} />
+          <Route path="/users" component={Users} />
 
-      </Switch>
+          <Route path="/statistics" component={Statistics} />
 
-    </div>
+        </Switch>
 
-  </Router>
+      </div>
+
+    </Router>
+
+  </Provider>
 );
 
 export default App;

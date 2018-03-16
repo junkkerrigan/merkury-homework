@@ -3,6 +3,8 @@ import map from 'lodash/map';
 import { Link } from 'react-router-dom';
 import keyIndex from 'react-key-index';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import store from '../../store';
 import SidebarItem from './SidebarItem';
 
 import '../../scss/main-layout/FixedSidebar.scss';
@@ -14,6 +16,12 @@ import calendarIcon from '../../img/calendar-icon.png';
 import usersIcon from '../../img/users-icon.png';
 import settingsIcon from '../../img/settings-icon.png';
 import logo from '../../img/entire-logo.png';
+
+const mapStateToProps = state => {
+  return {
+    isFixedMenuOpen: state.menu.isFixedMenuOpen
+  }
+};
 
 const FixedSidebar = (props) => {
   let linksData = [
@@ -76,7 +84,7 @@ const FixedSidebar = (props) => {
   linksData = keyIndex(linksData, 1);
 
   return (
-    <aside className="fixed-sidebar">
+    <aside className={`fixed-sidebar ${props.isFixedMenuOpen? 'opened' : ''}`}>
 
       <h1 className="fixed-sidebar-logo">
         <Link to="/home" href="/home">
@@ -112,4 +120,4 @@ FixedSidebar.defaultProps = {
   match: {}
 };
 
-export default FixedSidebar;
+export default connect(mapStateToProps)(FixedSidebar);

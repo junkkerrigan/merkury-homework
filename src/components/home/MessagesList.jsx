@@ -102,8 +102,6 @@ class MessagesList extends Component {
                      id={item._iconId}
                    />);
                 }
-
-                return <MessageItem />;
               })
             }
 

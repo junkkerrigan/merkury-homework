@@ -5,6 +5,8 @@ import BigCalendar from 'react-big-calendar';
 import localizer from 'react-big-calendar/lib/localizers/moment';
 import { Container } from 'reactstrap';
 import PropTypes from 'prop-types';
+import store from '../../store';
+import { connect } from 'react-redux';
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import '../../scss/Calendar.scss';
@@ -232,6 +234,12 @@ const defaultEvents = [
   },
 ];
 
+const mapStateToProps = state => {
+  return {
+    isFixedMenuOpen: state.menu.isFixedMenuOpen
+  }
+};
+
 class Calendar extends Component {
   constructor(props) {
     super(props);
@@ -266,13 +274,10 @@ class Calendar extends Component {
   }
 
   onDataOpen(e) {
-    const [selectedEvent] =
-            this.state.events.filter(checkingEvent =>
-              checkingEvent.id === e.id);
+    const [selectedEvent] = this.state.events.filter(checkingEvent => checkingEvent.id === e.id);
     selectedEvent.isDataOpen = !selectedEvent.isDataOpen;
 
-    const newEvents =
-            this.state.events;
+    const newEvents = this.state.events;
     newEvents[selectedEvent.id] = selectedEvent;
 
     this.setState({
@@ -282,7 +287,7 @@ class Calendar extends Component {
 
   render() {
     return (
-      <section className="calendar page-content">
+      <section className={`calendar page-content ${this.props.isFixedMenuOpen? 'opened' : ''}`}>
 
         <Container>
 
@@ -295,9 +300,7 @@ class Calendar extends Component {
             selectable
             onSelectSlot={this.onEventAdd}
             onSelectEvent={this.onDataOpen}
-            components={{
-                            event: CustomEvent,
-                        }}
+            components={{ event: CustomEvent, }}
             defaultDate={new Date(2016, 0, 1)}
           />
 
@@ -308,5 +311,5 @@ class Calendar extends Component {
   }
 }
 
-export default Calendar;
+export default connect(mapStateToProps)(Calendar);
 

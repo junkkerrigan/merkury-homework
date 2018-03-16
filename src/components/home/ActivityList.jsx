@@ -149,7 +149,6 @@ class ActivityList extends Component {
                     />
                   );
                 }
-                return <ActivityItem />;
               })
             }
 

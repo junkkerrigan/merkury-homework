@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-
 import { Container, Row, Col } from 'reactstrap';
-
+import store from '../../store';
+import { connect } from 'react-redux';
 import StatsScatter from '../statistics/StatsScatter';
 import StatsDoughnut from '../statistics/StatsDoughnut';
 import ScatterChart from '../home/ScatterChart';
@@ -244,6 +244,12 @@ const scatterChartData = {
   ],
 };
 
+const mapStateToProps = state => {
+  return {
+    isFixedMenuOpen: state.menu.isFixedMenuOpen
+  }
+};
+
 class Statistics extends Component {
   constructor(props) {
     super(props);
@@ -290,8 +296,9 @@ class Statistics extends Component {
 
   render() {
     const { totalSales, totalViews, sales } = this.state;
+
     return (
-      <section className="statistics page-content">
+      <section className={`statistics page-content ${this.props.isFixedMenuOpen? 'opened' : ''}`}>
 
         <Container>
 
@@ -395,4 +402,5 @@ class Statistics extends Component {
   }
 }
 
-export default Statistics;
+export default connect(mapStateToProps)(Statistics);
+

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Container, Row } from 'reactstrap';
+import store from '../../store';
+import { connect } from 'react-redux';
 import DoughnutChart from '../home/DoughnutChart';
 import ScatterChart from '../home/ScatterChart';
 import TaskList from '../home/TaskList';
@@ -8,35 +10,42 @@ import ActivityList from '../home/ActivityList';
 
 import '../../scss/home/Home.scss';
 
-const Home = () => (
-  <section className="home page-content">
+const mapStateToProps = state => {
+  return {
+    isFixedMenuOpen: state.menu.isFixedMenuOpen
+  }
+};
+
+const Home = (props) => {
+  return <section className={`home page-content ${props.isFixedMenuOpen? 'opened' : ''}`}>
 
     <Container>
 
       <h2 className="home-greeting">
-                 Hello {localStorage.getItem('currentUser')}!
+        Hello {localStorage.getItem('currentUser')}!
       </h2>
 
       <Row>
 
-        <DoughnutChart />
+        <DoughnutChart/>
 
-        <ScatterChart title="Report" />
+        <ScatterChart title="Report"/>
 
       </Row>
 
       <Row>
 
-        <TaskList />
+        <TaskList/>
 
-        <MessagesList />
+        <MessagesList/>
 
-        <ActivityList />
+        <ActivityList/>
 
       </Row>
 
     </Container>
 
   </section>
-);
-export default Home;
+};
+export default connect(mapStateToProps)(Home);
+

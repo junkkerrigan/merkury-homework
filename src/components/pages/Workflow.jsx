@@ -2,9 +2,17 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import keyIndex from 'react-key-index';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import store from '../../store';
+import { connect } from 'react-redux';
 import TaskItem from '../home/TaskItem';
 
 import '../../scss/Workflow.scss';
+
+const mapStateToProps = state => {
+  return {
+    isFixedMenuOpen: state.menu.isFixedMenuOpen
+  }
+};
 
 class Workflow extends Component {
   constructor(props) {
@@ -110,11 +118,9 @@ class Workflow extends Component {
     });
   }
 
-  // erase when finish
-
   render() {
     return (
-      <section className="workflow page-content">
+      <section className={`workflow page-content ${this.props.isFixedMenuOpen? 'opened' : ''}`}>
 
         <Container>
 
@@ -305,4 +311,4 @@ class Workflow extends Component {
   }
 }
 
-export default Workflow;
+export default connect(mapStateToProps)(Workflow);

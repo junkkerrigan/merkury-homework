@@ -64,7 +64,7 @@ class TaskList extends Component {
           <header className="service-header">
 
             <h5 className="service-title">
-                            Tasks
+              Tasks
             </h5>
 
             <div className="service-number-wrapper">
@@ -75,8 +75,8 @@ class TaskList extends Component {
 
               <span className="service-number delay">
                 {
-                                      this.delayedTasksNumber()
-                                  }
+                  this.delayedTasksNumber()
+                }
               </span>
 
             </div>
@@ -97,7 +97,6 @@ class TaskList extends Component {
                     key={item._nameId}
                   />);
                 }
-                return <TaskItem />;
               })
             }
 

@@ -4,8 +4,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-@import 'general';
-
 button, a {
   cursor: pointer;
 }
@@ -35,9 +33,8 @@ h1, h2, h3, h4, h5, h6, ul, ol, p {
   transition: .2s;
 
   &.opened {
-    @media (min-width: $_md) {
+    @media (min-width: 768px) {
       padding-left: 155px;
     }
   }
 }
-
