@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container, Row } from 'reactstrap';
 import map from 'lodash/map';
 import shortid from 'shortid';
-import store from '../../store';
+import store from '../../redux-stuff/store';
 import { connect } from 'react-redux';
 import UserItem from '../users/UserItem';
 

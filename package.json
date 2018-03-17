@@ -60,6 +60,7 @@
   },
   "devDependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-stage-1": "^6.24.1",
     "concurrently": "^3.5.1",
     "eslint": "^4.18.2",
     "eslint-config-airbnb": "^16.1.0",

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import keyIndex from 'react-key-index';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import store from '../../store';
+import store from '../../redux-stuff/store';
 import SidebarItem from './SidebarItem';
 
 import '../../scss/main-layout/FixedSidebar.scss';

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import keyIndex from 'react-key-index';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import store from '../../store';
+import store from '../../redux-stuff/store';
 import { connect } from 'react-redux';
 import TaskItem from '../home/TaskItem';
 

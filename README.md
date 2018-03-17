@@ -1,3 +1,9 @@
-# ```Mercury``` homework for ```GeekHub```
-
-run ```npm install``` then ```npm run watch``` to compile
+#Mercury
+Mercury homework for Geekhub
+##Installation
+run
+```
+npm install
+npm start
+```
+in root folder

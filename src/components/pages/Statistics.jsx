@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import store from '../../store';
+import store from '../../redux-stuff/store';
 import { connect } from 'react-redux';
 import StatsScatter from '../statistics/StatsScatter';
 import StatsDoughnut from '../statistics/StatsDoughnut';

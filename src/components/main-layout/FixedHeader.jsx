@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import UserMenu from './UserMenu';
 import UserNotifications from './UserNotifications';
 import UserMessages from './UserMessages';
-import { toggleMenu } from '../../actions';
+import { toggleMenu } from '../../redux-stuff/actions';
 
 import '../../scss/main-layout/FixedHeader.scss';
 
@@ -30,11 +30,9 @@ class FixedHeader extends Component {
       notificationsNumber: 3,
       isFixedMenuOpen: false,
     };
-
-    this.toggleMenu = this.toggleMenu.bind(this);
   }
 
-  toggleMenu() {
+  toggleMenu = () => {
     this.setState({
       isFixedMenuOpen: !this.state.isFixedMenuOpen,
     });
@@ -45,7 +43,7 @@ class FixedHeader extends Component {
     sidebar.classList.toggle('opened');
     page.classList.toggle('opened');*/
 
-  }
+  };
 
   render() {
     return (

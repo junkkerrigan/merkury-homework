@@ -5,7 +5,7 @@ import BigCalendar from 'react-big-calendar';
 import localizer from 'react-big-calendar/lib/localizers/moment';
 import { Container } from 'reactstrap';
 import PropTypes from 'prop-types';
-import store from '../../store';
+import store from '../../redux-stuff/store';
 import { connect } from 'react-redux';
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';

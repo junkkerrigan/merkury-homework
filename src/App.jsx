@@ -2,7 +2,7 @@ import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { Provider } from 'react-redux';
-import store from './store';
+import store from './redux-stuff/store';
 import Sign from './components/pages/Sign';
 import FixedHeader from './components/main-layout/FixedHeader';
 import FixedSidebar from './components/main-layout/FixedSidebar';

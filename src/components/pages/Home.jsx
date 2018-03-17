@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row } from 'reactstrap';
-import store from '../../store';
+import store from '../../redux-stuff/store';
 import { connect } from 'react-redux';
 import DoughnutChart from '../home/DoughnutChart';
 import ScatterChart from '../home/ScatterChart';
