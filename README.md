@@ -1,6 +1,6 @@
-#Mercury
+# Mercury
 Mercury homework for Geekhub
-##Installation
+## Installation
 run
 ```
 npm install
