@@ -39,7 +39,7 @@
     "jquery": "^3.5.0",
     "lodash": "^4.17.13",
     "moment": "^2.20.1",
-    "node-sass": "^4.7.2",
+    "node-sass": "^4.13.1",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-beautiful-dnd": "^4.0.1",
